@@ -200,3 +200,10 @@ main {
   .filters select[multiple],
   .filters input[type="search"] { min-width: 0; width: 100%; }
 }
+.row.potion {
+  grid-template-columns: 2fr 5fr 1fr;
+}
+.row.potion.header { grid-template-columns: 2fr 5fr 1fr; }
+@media (max-width: 640px) {
+  .row.potion { grid-template-columns: 1fr; }
+}

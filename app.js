@@ -218,6 +218,89 @@ function refreshSimilarTargetEffects() {
 }
 
 // ---------------------------------------------------------------------------
+// Potion Builder tab
+// ---------------------------------------------------------------------------
+
+function potionEffectsFromPair(a, b) {
+  return intersect(a.effects, b.effects);
+}
+
+function potionEffectsFromTriple(a, b, c) {
+  // A potion from 3 ingredients shows every effect that at least 2 of them share.
+  const ab = intersect(a.effects, b.effects);
+  const ac = intersect(a.effects, c.effects);
+  const bc = intersect(b.effects, c.effects);
+  return [...new Set([...ab, ...ac, ...bc])];
+}
+
+function findPotions(ingredients, desired) {
+  if (desired.length === 0) return [];
+  const results = [];
+
+  // Pairs
+  for (let i = 0; i < ingredients.length; i++) {
+    for (let j = i + 1; j < ingredients.length; j++) {
+      const produced = potionEffectsFromPair(ingredients[i], ingredients[j]);
+      if (produced.length > 0 && isSuperset(produced, desired)) {
+        results.push({ members: [ingredients[i], ingredients[j]], producedEffects: produced });
+      }
+    }
+  }
+
+  // Triples only when the user asks for ≥2 effects (keeps noise down).
+  if (desired.length >= 2) {
+    for (let i = 0; i < ingredients.length; i++) {
+      for (let j = i + 1; j < ingredients.length; j++) {
+        for (let k = j + 1; k < ingredients.length; k++) {
+          const produced = potionEffectsFromTriple(ingredients[i], ingredients[j], ingredients[k]);
+          if (isSuperset(produced, desired)) {
+            results.push({
+              members: [ingredients[i], ingredients[j], ingredients[k]],
+              producedEffects: produced,
+            });
+          }
+        }
+      }
+    }
+  }
+
+  results.sort((a, b) => b.producedEffects.length - a.producedEffects.length);
+  return results;
+}
+
+function renderPotions(results) {
+  const el = document.getElementById("potion-results");
+  if (state.potion.effects.size === 0) {
+    el.innerHTML = '<div class="empty">Pick 1–3 effects to search.</div>';
+    return;
+  }
+  if (results.length === 0) {
+    el.innerHTML = '<div class="empty">No ingredient combinations produce all of those effects together.</div>';
+    return;
+  }
+  const desired = state.potion.effects;
+  const rows = results.map(({ members, producedEffects }) => {
+    const names = members.map((m) => escapeHtml(m.name)).join(" + ");
+    const pills = producedEffects
+      .map((e) => `<span class="pill${desired.has(e) ? " match" : ""}">${escapeHtml(e)}</span>`)
+      .join("");
+    return `
+      <div class="row potion">
+        <div class="name">${names}</div>
+        <div class="pills">${pills}</div>
+        <div>${producedEffects.length} effect${producedEffects.length === 1 ? "" : "s"}</div>
+      </div>`;
+  }).join("");
+  el.innerHTML = `
+    <div class="row header">
+      <div>Ingredients</div>
+      <div>Produced effects (requested highlighted)</div>
+      <div>Count</div>
+    </div>
+    ${rows}`;
+}
+
+// ---------------------------------------------------------------------------
 // Rerender dispatcher (stub — filled in by later tasks)
 // ---------------------------------------------------------------------------
 
@@ -232,8 +315,7 @@ function rerender() {
       state.similar.requiredEffects,
     ));
   } else {
-    const el = document.getElementById("potion-results");
-    if (el) el.innerHTML = '<div class="empty">Not implemented yet.</div>';
+    renderPotions(findPotions(window.INGREDIENTS, [...state.potion.effects]));
   }
 }
 
@@ -311,6 +393,14 @@ function bindSimilarControls() {
   });
 }
 
+function bindPotionControls() {
+  document.getElementById("potion-effects").addEventListener("change", (e) => {
+    const selected = [...e.target.selectedOptions].map((o) => o.value).slice(0, 3);
+    state.potion.effects = new Set(selected);
+    rerender();
+  });
+}
+
 function init() {
   if (!window.INGREDIENTS) {
     console.error("data.js did not load");
@@ -322,6 +412,7 @@ function init() {
   bindTabs();
   bindBrowseControls();
   bindSimilarControls();
+  bindPotionControls();
   refreshSimilarTargetEffects();
   rerender();
 }
