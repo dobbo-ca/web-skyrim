@@ -179,7 +179,11 @@ One page. Covers: what it is, how to open locally (`open index.html`), GitHub Pa
 
 ## Deployment
 
-No build step. `git push` to a GitHub repo, enable GitHub Pages from the main branch root, done.
+No build step. Target host: `cdobbyn/skyrim-alchemy` GitHub repo (new, separate from the existing `cdobbyn/cdobbyn.github.io` blog repo). Enable GitHub Pages on `main` branch root. Because `cdobbyn.github.io` has `www.dobbo.ca` configured as a custom domain, project pages on the same account are automatically served under that domain as subpaths:
+
+**Final URL: `https://www.dobbo.ca/skyrim-alchemy/`**
+
+No CNAME file or DNS changes are needed in the new repo — GitHub Pages handles the subpath routing automatically.
 
 ## Risks & Open Questions
 
