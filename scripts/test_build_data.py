@@ -4,7 +4,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from build_data import classify_source
+from build_data import classify_source, clean_wiki_markup
 
 
 class TestClassifySource(unittest.TestCase):
@@ -41,6 +41,30 @@ class TestClassifySource(unittest.TestCase):
 
     def test_case_insensitive(self):
         self.assertEqual(classify_source("CORPSES EVERYWHERE", "Big Creature"), "creature")
+
+
+class TestCleanWikiMarkup(unittest.TestCase):
+    def test_plain_link(self):
+        self.assertEqual(clean_wiki_markup("[[Ancestor Glade]]"), "Ancestor Glade")
+
+    def test_piped_link_uses_display_text(self):
+        self.assertEqual(clean_wiki_markup("[[Ash Hopper|Hopper]] Corpses"), "Hopper Corpses")
+
+    def test_no_markup_passthrough(self):
+        self.assertEqual(clean_wiki_markup("Lakes, rivers, streams"), "Lakes, rivers, streams")
+
+    def test_trailing_close_brackets(self):
+        # The upstream CSV has quirks like "[[Ash Hopper ]]Corpses"
+        self.assertEqual(clean_wiki_markup("[[Ash Hopper ]]Corpses"), "Ash Hopper Corpses")
+
+    def test_multiple_links(self):
+        self.assertEqual(clean_wiki_markup("[[Whiterun]] and [[Riften]]"), "Whiterun and Riften")
+
+    def test_empty_string(self):
+        self.assertEqual(clean_wiki_markup(""), "")
+
+    def test_collapses_double_spaces(self):
+        self.assertEqual(clean_wiki_markup("a  b"), "a b")
 
 
 if __name__ == "__main__":
