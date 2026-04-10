@@ -68,47 +68,49 @@ export default function SimilarTab(props: Props) {
   return (
     <section class="panel active">
       <div class="filters">
-        <label>
-          Ingredient
-          <select value={targetName()} onChange={(e) => onTargetChange(e.currentTarget.value)}>
-            <For each={sorted}>{(ing) => <option value={ing.name}>{ing.name}</option>}</For>
-          </select>
-        </label>
-        <label>
-          Min shared effects
-          <select
-            value={minShared()}
-            onChange={(e) => setMinShared(parseInt(e.currentTarget.value, 10))}
-          >
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-          </select>
-        </label>
-        <fieldset>
-          <legend>
-            <Show when={target()} fallback={<>Require effect(s)</>}>
-              {(t) => <>Require effect(s) of {t().name}</>}
-            </Show>
-          </legend>
-          <Show when={target()}>
-            {(t) => (
-              <For each={t().effects}>
-                {(eff) => (
-                  <label>
-                    <input
-                      type="checkbox"
-                      checked={requiredEffects().has(eff)}
-                      onChange={(e) => toggleRequiredEffect(eff, e.currentTarget.checked)}
-                    />
-                    {' '}{eff}
-                  </label>
-                )}
-              </For>
-            )}
-          </Show>
-        </fieldset>
+        <div class="filters-row">
+          <label class="field">
+            Ingredient
+            <select value={targetName()} onChange={(e) => onTargetChange(e.currentTarget.value)}>
+              <For each={sorted}>{(ing) => <option value={ing.name}>{ing.name}</option>}</For>
+            </select>
+          </label>
+          <label class="field">
+            Min shared effects
+            <select
+              value={minShared()}
+              onChange={(e) => setMinShared(parseInt(e.currentTarget.value, 10))}
+            >
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+          </label>
+        </div>
+        <Show when={target()}>
+          {(t) => (
+            <div class="filters-row">
+              <div class="chip-row">
+                <span class="chip-row-label">Require</span>
+                <For each={t().effects}>
+                  {(eff) => (
+                    <button
+                      type="button"
+                      class="chip-toggle"
+                      classList={{ active: requiredEffects().has(eff) }}
+                      onClick={() =>
+                        toggleRequiredEffect(eff, !requiredEffects().has(eff))
+                      }
+                    >
+                      {eff}
+                    </button>
+                  )}
+                </For>
+              </div>
+            </div>
+          )}
+        </Show>
       </div>
 
       <div class="results">

@@ -81,59 +81,63 @@ export default function BrowseTab(props: Props) {
   return (
     <section class="panel active">
       <div class="filters">
-        <label>
-          Search
-          <input
-            ref={searchInput}
-            type="search"
-            value={search()}
-            onInput={(e) => setSearch(e.currentTarget.value)}
-            placeholder="name…  ( / to focus )"
-          />
-        </label>
-        <label>
-          Effects (AND)
-          <select
-            multiple
-            size="6"
-            onChange={(e) => {
-              const selected = [...e.currentTarget.selectedOptions].map((o) => o.value);
-              setEffects(new Set(selected));
-            }}
-          >
-            <For each={effectOptions}>{(eff) => <option value={eff}>{eff}</option>}</For>
-          </select>
-        </label>
-        <fieldset>
-          <legend>DLC</legend>
-          <For each={DLCS}>
-            {(d) => (
-              <label>
-                <input
-                  type="checkbox"
-                  checked={dlcs().has(d)}
-                  onChange={(e) => toggleSetValue(dlcs, setDlcs, d, e.currentTarget.checked)}
-                />
-                {' '}{d}
-              </label>
-            )}
-          </For>
-        </fieldset>
-        <fieldset>
-          <legend>Source</legend>
-          <For each={SOURCES}>
-            {(s) => (
-              <label>
-                <input
-                  type="checkbox"
-                  checked={sources().has(s)}
-                  onChange={(e) => toggleSetValue(sources, setSources, s, e.currentTarget.checked)}
-                />
-                {' '}{s}
-              </label>
-            )}
-          </For>
-        </fieldset>
+        <div class="filters-row">
+          <label class="field">
+            Search
+            <input
+              ref={searchInput}
+              type="search"
+              value={search()}
+              onInput={(e) => setSearch(e.currentTarget.value)}
+              placeholder="name…  ( / to focus )"
+            />
+          </label>
+          <label class="field">
+            Effects (AND)
+            <select
+              multiple
+              size="6"
+              onChange={(e) => {
+                const selected = [...e.currentTarget.selectedOptions].map((o) => o.value);
+                setEffects(new Set(selected));
+              }}
+            >
+              <For each={effectOptions}>{(eff) => <option value={eff}>{eff}</option>}</For>
+            </select>
+          </label>
+        </div>
+        <div class="filters-row">
+          <div class="chip-row">
+            <span class="chip-row-label">DLC</span>
+            <For each={DLCS}>
+              {(d) => (
+                <button
+                  type="button"
+                  class="chip-toggle"
+                  classList={{ active: dlcs().has(d) }}
+                  onClick={() => toggleSetValue(dlcs, setDlcs, d, !dlcs().has(d))}
+                >
+                  {d}
+                </button>
+              )}
+            </For>
+          </div>
+          <div class="chip-row">
+            <span class="chip-row-label">Source</span>
+            <For each={SOURCES}>
+              {(s) => (
+                <button
+                  type="button"
+                  class="chip-toggle"
+                  classList={{ active: sources().has(s) }}
+                  onClick={() => toggleSetValue(sources, setSources, s, !sources().has(s))}
+                >
+                  {s}
+                </button>
+              )}
+            </For>
+          </div>
+        </div>
       </div>
 
       <div class="results">

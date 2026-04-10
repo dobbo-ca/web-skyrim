@@ -1,41 +1,72 @@
+/* --------------------------------------------------------------------
+ * Color tokens — OKLCH, dark-first with prefers-color-scheme: light override
+ * ------------------------------------------------------------------ */
+
 :root {
-  /* Valheim dark dashboard palette */
-  --bg: #14181d;
-  --bg-elev: #1a1e24;
-  --bg-row: #1a1e24;
-  --bg-row-hover: #1e242c;
-  --fg: #d8d4c8;
-  --fg-dim: #9a9688;
-  --fg-muted: #7a7668;
-  --accent: #e8b87a;
-  --accent-dim: #c9a24b;
-  --border: #2a2f38;
-  --border-soft: #242931;
-  /* Bronze-brown chip palette for matched/active highlights */
-  --chip-bg: #2a2f38;
-  --chip-active-bg: #3a2f22;
-  --chip-active-border: #5a4530;
+  color-scheme: light dark;
+
+  /* Dark (default) */
+  --bg-dark: oklch(0.1 0.025 264);
+  --bg: oklch(0.15 0.025 264);
+  --bg-light: oklch(0.2 0.025 264);
+  --text: oklch(0.96 0.05 264);
+  --text-muted: oklch(0.76 0.05 264);
+  --highlight: oklch(0.5 0.05 264);
+  --border: oklch(0.4 0.05 264);
+  --border-muted: oklch(0.3 0.05 264);
+  --primary: oklch(0.76 0.1 264);
+  --secondary: oklch(0.76 0.1 84);
+  --danger: oklch(0.7 0.05 30);
+  --warning: oklch(0.7 0.05 100);
+  --success: oklch(0.7 0.05 160);
+  --info: oklch(0.7 0.05 260);
+
   --radius: 6px;
   --font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-dark: oklch(0.92 0.025 264);
+    --bg: oklch(0.96 0.025 264);
+    --bg-light: oklch(1 0.025 264);
+    --text: oklch(0.15 0.05 264);
+    --text-muted: oklch(0.4 0.05 264);
+    --highlight: oklch(1 0.05 264);
+    --border: oklch(0.6 0.05 264);
+    --border-muted: oklch(0.7 0.05 264);
+    --primary: oklch(0.4 0.1 264);
+    --secondary: oklch(0.4 0.1 84);
+    --danger: oklch(0.5 0.05 30);
+    --warning: oklch(0.5 0.05 100);
+    --success: oklch(0.5 0.05 160);
+    --info: oklch(0.5 0.05 260);
+  }
+}
+
+/* --------------------------------------------------------------------
+ * Base
+ * ------------------------------------------------------------------ */
 
 * { box-sizing: border-box; }
 
 body {
   margin: 0;
-  background: var(--bg);
-  color: var(--fg);
+  background: var(--bg-dark);
+  color: var(--text);
   font-family: var(--font);
   font-size: 14px;
   line-height: 1.5;
 }
 
-/* --- Header ----------------------------------------------------------- */
+/* --------------------------------------------------------------------
+ * Header
+ * ------------------------------------------------------------------ */
 
 header {
   padding: 1rem 1.5rem;
-  border-bottom: 1px solid var(--border);
-  background: var(--bg-elev);
+  border-bottom: 1px solid var(--border-muted);
+  background: var(--bg);
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -45,27 +76,28 @@ header {
 h1 {
   margin: 0;
   font-size: 1.1rem;
-  color: var(--accent);
+  color: var(--secondary);
   letter-spacing: 0.04em;
   font-weight: 600;
 }
 
-h1 .brand-mark {
-  margin-right: 0.35rem;
-}
+h1 .brand-mark { margin-right: 0.35rem; }
 
 h1 .brand-url {
-  color: var(--fg-muted);
+  color: var(--text-muted);
   font-weight: 400;
   font-size: 0.85rem;
   margin-left: 0.5rem;
 }
 
-/* Segmented control tabs */
+/* --------------------------------------------------------------------
+ * Segmented control tabs
+ * ------------------------------------------------------------------ */
+
 .tabs {
   display: flex;
-  background: var(--bg);
-  border: 1px solid var(--border);
+  background: var(--bg-dark);
+  border: 1px solid var(--border-muted);
   border-radius: var(--radius);
   overflow: hidden;
 }
@@ -73,7 +105,7 @@ h1 .brand-url {
 .tab {
   background: transparent;
   border: none;
-  color: var(--fg-dim);
+  color: var(--text-muted);
   padding: 0.45rem 0.9rem;
   cursor: pointer;
   font-family: inherit;
@@ -83,21 +115,19 @@ h1 .brand-url {
   transition: color 120ms, background 120ms;
 }
 
-.tab + .tab {
-  border-left: 1px solid var(--border);
-}
+.tab + .tab { border-left: 1px solid var(--border-muted); }
 
-.tab:hover:not(.active) {
-  color: var(--fg);
-}
+.tab:hover:not(.active) { color: var(--text); }
 
 .tab.active {
-  background: var(--accent);
-  color: var(--bg);
+  background: var(--primary);
+  color: var(--bg-dark);
   font-weight: 600;
 }
 
-/* --- Main layout ------------------------------------------------------ */
+/* --------------------------------------------------------------------
+ * Main layout
+ * ------------------------------------------------------------------ */
 
 main {
   padding: 1.5rem;
@@ -107,58 +137,44 @@ main {
 
 .panel { display: block; }
 
-/* --- Filter bar ------------------------------------------------------- */
+/* --------------------------------------------------------------------
+ * Filter bar — two-row dense layout
+ * ------------------------------------------------------------------ */
 
 .filters {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 0.75rem;
   margin-bottom: 1rem;
   padding: 0.85rem 1rem;
-  background: var(--bg-elev);
+  background: var(--bg);
   border-radius: var(--radius);
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-muted);
 }
 
-.filters label,
-.filters fieldset {
+.filters-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: flex-end;
+}
+
+.filters label.field {
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
-  color: var(--fg-muted);
-  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   font-weight: 500;
 }
 
-.filters fieldset {
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 0.45rem 0.7rem;
-  margin: 0;
-}
-
-.filters fieldset legend {
-  padding: 0 0.3rem;
-}
-
-.filters fieldset label {
-  flex-direction: row;
-  align-items: center;
-  gap: 0.35rem;
-  text-transform: none;
-  letter-spacing: 0;
-  font-size: 0.8rem;
-  color: var(--fg);
-  font-weight: 400;
-}
-
 .filters input[type="search"],
 .filters select {
-  background: var(--bg);
-  color: var(--fg);
-  border: 1px solid var(--border);
+  background: var(--bg-dark);
+  color: var(--text);
+  border: 1px solid var(--border-muted);
   border-radius: var(--radius);
   padding: 0.4rem 0.6rem;
   font-family: inherit;
@@ -170,18 +186,63 @@ main {
 .filters input[type="search"]:focus,
 .filters select:focus {
   outline: none;
-  border-color: var(--accent);
+  border-color: var(--primary);
 }
 
-.filters select[multiple] {
-  min-width: 220px;
+.filters select[multiple] { min-width: 220px; }
+
+/* --------------------------------------------------------------------
+ * Chip toggle row (DLC, Source, required effects)
+ * ------------------------------------------------------------------ */
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: center;
 }
 
-/* --- Results table --------------------------------------------------- */
+.chip-row-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-right: 0.4rem;
+}
+
+.chip-toggle {
+  background: var(--bg-light);
+  color: var(--text-muted);
+  border: 1px solid var(--border-muted);
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: color 120ms, border-color 120ms, background 120ms;
+  font-family: inherit;
+  text-transform: capitalize;
+}
+
+.chip-toggle:hover {
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.chip-toggle.active {
+  background: color-mix(in oklab, var(--primary) 18%, var(--bg));
+  border-color: var(--primary);
+  color: var(--primary);
+  font-weight: 500;
+}
+
+/* --------------------------------------------------------------------
+ * Results table
+ * ------------------------------------------------------------------ */
 
 .results {
-  background: var(--bg-elev);
-  border: 1px solid var(--border);
+  background: var(--bg);
+  border: 1px solid var(--border-muted);
   border-radius: var(--radius);
   overflow: hidden;
 }
@@ -191,7 +252,7 @@ main {
   grid-template-columns: 2fr 5fr 0.8fr 0.8fr 1fr 1fr;
   gap: 0.75rem;
   padding: 0.65rem 0.9rem;
-  border-bottom: 1px solid var(--border-soft);
+  border-bottom: 1px solid var(--border-muted);
   align-items: center;
   font-size: 0.82rem;
 }
@@ -199,7 +260,7 @@ main {
 .row:last-child { border-bottom: none; }
 
 .row.header {
-  color: var(--fg-muted);
+  color: var(--text-muted);
   font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -209,12 +270,12 @@ main {
 }
 
 .row:not(.header):hover {
-  background: var(--bg-row-hover);
+  background: var(--bg-light);
 }
 
 .row .name {
   font-weight: 500;
-  color: var(--fg);
+  color: var(--text);
 }
 
 /* Sortable header cells */
@@ -224,13 +285,15 @@ main {
   transition: color 120ms;
 }
 .row.header.sortable > div[data-sortable]:hover {
-  color: var(--fg);
+  color: var(--text);
 }
 .row.header.sortable > div[data-sortable].active {
-  color: var(--accent);
+  color: var(--primary);
 }
 
-/* --- Effect pills ---------------------------------------------------- */
+/* --------------------------------------------------------------------
+ * Effect pills
+ * ------------------------------------------------------------------ */
 
 .pills {
   display: flex;
@@ -239,8 +302,8 @@ main {
 }
 
 .pill {
-  background: var(--chip-bg);
-  color: var(--fg-dim);
+  background: var(--bg-light);
+  color: var(--text-muted);
   border: 1px solid transparent;
   padding: 0.15rem 0.55rem;
   border-radius: 999px;
@@ -250,27 +313,27 @@ main {
 }
 
 .pill.match {
-  background: var(--chip-active-bg);
-  border-color: var(--chip-active-border);
-  color: var(--accent);
+  background: color-mix(in oklab, var(--secondary) 18%, var(--bg));
+  border-color: var(--secondary);
+  color: var(--secondary);
   font-weight: 500;
 }
 
-/* --- Empty state ----------------------------------------------------- */
+/* --------------------------------------------------------------------
+ * Empty state + footer status
+ * ------------------------------------------------------------------ */
 
 .empty {
   padding: 2rem;
   text-align: center;
-  color: var(--fg-muted);
+  color: var(--text-muted);
   font-style: italic;
 }
-
-/* --- Footer status line ---------------------------------------------- */
 
 .status {
   margin-top: 0.75rem;
   font-size: 0.7rem;
-  color: var(--fg-muted);
+  color: var(--text-muted);
   display: flex;
   gap: 0.5rem;
   flex-wrap: wrap;
@@ -278,26 +341,29 @@ main {
 }
 
 .status kbd {
-  background: var(--border);
-  color: var(--fg-dim);
+  background: var(--bg-light);
+  color: var(--text);
+  border: 1px solid var(--border-muted);
   padding: 0.05rem 0.4rem;
   border-radius: 3px;
   font-size: 0.65rem;
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
-.status .dot {
-  color: var(--border);
-}
+.status .dot { color: var(--border-muted); }
 
-/* --- Potion row variant ---------------------------------------------- */
+/* --------------------------------------------------------------------
+ * Potion row variant
+ * ------------------------------------------------------------------ */
 
 .row.potion {
   grid-template-columns: 2fr 5fr 1fr;
 }
 .row.potion.header { grid-template-columns: 2fr 5fr 1fr; }
 
-/* --- Mobile ---------------------------------------------------------- */
+/* --------------------------------------------------------------------
+ * Mobile
+ * ------------------------------------------------------------------ */
 
 @media (max-width: 640px) {
   header {
@@ -313,9 +379,9 @@ main {
     gap: 0.25rem;
   }
   .row.header { display: none; }
-  .row .name { font-size: 0.95rem; color: var(--accent); }
+  .row .name { font-size: 0.95rem; color: var(--secondary); }
   .row.potion { grid-template-columns: 1fr; }
-  .filters { flex-direction: column; }
+  .filters-row { flex-direction: column; align-items: stretch; }
   .filters select,
   .filters select[multiple],
   .filters input[type="search"] { min-width: 0; width: 100%; }

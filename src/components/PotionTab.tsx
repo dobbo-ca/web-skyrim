@@ -57,12 +57,14 @@ export default function PotionTab(props: Props) {
   return (
     <section class="panel active">
       <div class="filters">
-        <label>
-          Desired effects (pick 1–3)
-          <select multiple size="10" onChange={onEffectChange}>
-            <For each={effectOptions}>{(eff) => <option value={eff}>{eff}</option>}</For>
-          </select>
-        </label>
+        <div class="filters-row">
+          <label class="field">
+            Desired effects (pick 1–3)
+            <select multiple size="10" onChange={onEffectChange}>
+              <For each={effectOptions}>{(eff) => <option value={eff}>{eff}</option>}</For>
+            </select>
+          </label>
+        </div>
       </div>
 
       <div class="results">
