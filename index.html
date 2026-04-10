@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skyrim Alchemy</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Skyrim Alchemy</h1>
+    <nav class="tabs" role="tablist">
+      <button class="tab active" data-tab="browse" role="tab">Browse</button>
+      <button class="tab" data-tab="similar" role="tab">Similar To</button>
+      <button class="tab" data-tab="potion" role="tab">Potion Builder</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Browse tab -->
+    <section class="panel active" data-panel="browse">
+      <div class="filters">
+        <label>
+          Search
+          <input type="search" id="browse-search" placeholder="name…">
+        </label>
+        <label>
+          Effects (AND)
+          <select id="browse-effects" multiple size="6"></select>
+        </label>
+        <fieldset>
+          <legend>DLC</legend>
+          <label><input type="checkbox" class="dlc-filter" value="Base" checked> Base</label>
+          <label><input type="checkbox" class="dlc-filter" value="Dawnguard" checked> Dawnguard</label>
+          <label><input type="checkbox" class="dlc-filter" value="Dragonborn" checked> Dragonborn</label>
+          <label><input type="checkbox" class="dlc-filter" value="Hearthfire" checked> Hearthfire</label>
+        </fieldset>
+        <fieldset>
+          <legend>Source</legend>
+          <label><input type="checkbox" class="source-filter" value="plant" checked> Plant</label>
+          <label><input type="checkbox" class="source-filter" value="creature" checked> Creature</label>
+          <label><input type="checkbox" class="source-filter" value="purchased" checked> Purchased</label>
+          <label><input type="checkbox" class="source-filter" value="other" checked> Other</label>
+        </fieldset>
+        <label>
+          Sort by
+          <select id="browse-sort">
+            <option value="name">Name</option>
+            <option value="value">Value</option>
+            <option value="weight">Weight</option>
+            <option value="ratio">Value / Weight</option>
+          </select>
+        </label>
+      </div>
+      <div class="results" id="browse-results"></div>
+    </section>
+
+    <!-- Similar To tab -->
+    <section class="panel" data-panel="similar">
+      <div class="filters">
+        <label>
+          Ingredient
+          <select id="similar-ingredient"></select>
+        </label>
+        <label>
+          Min shared effects
+          <select id="similar-min">
+            <option value="1">1</option>
+            <option value="2" selected>2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </label>
+        <fieldset id="similar-target-effects">
+          <legend>Require effect(s)</legend>
+          <!-- populated dynamically when ingredient changes -->
+        </fieldset>
+      </div>
+      <div class="results" id="similar-results"></div>
+    </section>
+
+    <!-- Potion Builder tab -->
+    <section class="panel" data-panel="potion">
+      <div class="filters">
+        <label>
+          Desired effects (pick 1–3)
+          <select id="potion-effects" multiple size="10"></select>
+        </label>
+      </div>
+      <div class="results" id="potion-results"></div>
+    </section>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
