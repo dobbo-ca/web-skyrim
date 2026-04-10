@@ -136,15 +136,103 @@ function renderBrowse(results) {
 }
 
 // ---------------------------------------------------------------------------
+// Similar To tab
+// ---------------------------------------------------------------------------
+
+function findSimilar(ingredients, targetName, minShared, requiredEffects) {
+  const target = ingredients.find((ing) => ing.name === targetName);
+  if (!target) return { target: null, results: [] };
+  const required = [...requiredEffects];
+  const results = [];
+  for (const other of ingredients) {
+    if (other.name === target.name) continue;
+    const shared = intersect(target.effects, other.effects);
+    if (shared.length < minShared) continue;
+    if (required.length > 0 && !required.every((e) => other.effects.includes(e))) continue;
+    results.push({ ingredient: other, shared });
+  }
+  results.sort((a, b) => b.shared.length - a.shared.length);
+  return { target, results };
+}
+
+function renderSimilar(output) {
+  const el = document.getElementById("similar-results");
+  if (!output || !output.target) {
+    el.innerHTML = '<div class="empty">Pick an ingredient.</div>';
+    return;
+  }
+  const { target, results } = output;
+  if (results.length === 0) {
+    const req = [...state.similar.requiredEffects];
+    const reqNote = req.length > 0 ? ` and all of: ${req.join(", ")}` : "";
+    el.innerHTML = `<div class="empty">Nothing shares ${escapeHtml(String(state.similar.minShared))}+ effects with ${escapeHtml(target.name)}${escapeHtml(reqNote)}.</div>`;
+    return;
+  }
+  const rows = results.map(({ ingredient, shared }) => {
+    const matchSet = new Set(shared);
+    const pills = ingredient.effects
+      .map((e) => `<span class="pill${matchSet.has(e) ? " match" : ""}">${escapeHtml(e)}</span>`)
+      .join("");
+    return `
+      <div class="row">
+        <div class="name">${escapeHtml(ingredient.name)}</div>
+        <div class="pills">${pills}</div>
+        <div>${ingredient.weight}</div>
+        <div>${ingredient.value}</div>
+        <div>${escapeHtml(ingredient.dlc)}</div>
+        <div>${escapeHtml(ingredient.source)}</div>
+      </div>`;
+  }).join("");
+  el.innerHTML = `
+    <div class="row header">
+      <div>Name</div>
+      <div>Effects (shared highlighted)</div>
+      <div>Weight</div>
+      <div>Value</div>
+      <div>DLC</div>
+      <div>Source</div>
+    </div>
+    ${rows}`;
+}
+
+function refreshSimilarTargetEffects() {
+  const fieldset = document.getElementById("similar-target-effects");
+  const target = window.INGREDIENTS.find((i) => i.name === state.similar.ingredient);
+  if (!target) {
+    fieldset.innerHTML = "<legend>Require effect(s)</legend>";
+    return;
+  }
+  const boxes = target.effects
+    .map(
+      (e) => `<label><input type="checkbox" class="similar-target-effect" value="${escapeHtml(e)}"> ${escapeHtml(e)}</label>`
+    )
+    .join("");
+  fieldset.innerHTML = `<legend>Require effect(s) of ${escapeHtml(target.name)}</legend>${boxes}`;
+  fieldset.querySelectorAll(".similar-target-effect").forEach((cb) => {
+    cb.addEventListener("change", () => {
+      if (cb.checked) state.similar.requiredEffects.add(cb.value);
+      else state.similar.requiredEffects.delete(cb.value);
+      rerender();
+    });
+  });
+}
+
+// ---------------------------------------------------------------------------
 // Rerender dispatcher (stub — filled in by later tasks)
 // ---------------------------------------------------------------------------
 
 function rerender() {
   if (state.activeTab === "browse") {
     renderBrowse(filterBrowse(window.INGREDIENTS, state.browse));
+  } else if (state.activeTab === "similar") {
+    renderSimilar(findSimilar(
+      window.INGREDIENTS,
+      state.similar.ingredient,
+      state.similar.minShared,
+      state.similar.requiredEffects,
+    ));
   } else {
-    const containerId = { similar: "similar-results", potion: "potion-results" }[state.activeTab];
-    const el = document.getElementById(containerId);
+    const el = document.getElementById("potion-results");
     if (el) el.innerHTML = '<div class="empty">Not implemented yet.</div>';
   }
 }
@@ -210,6 +298,19 @@ function bindBrowseControls() {
   });
 }
 
+function bindSimilarControls() {
+  document.getElementById("similar-ingredient").addEventListener("change", (e) => {
+    state.similar.ingredient = e.target.value;
+    state.similar.requiredEffects = new Set();
+    refreshSimilarTargetEffects();
+    rerender();
+  });
+  document.getElementById("similar-min").addEventListener("change", (e) => {
+    state.similar.minShared = parseInt(e.target.value, 10);
+    rerender();
+  });
+}
+
 function init() {
   if (!window.INGREDIENTS) {
     console.error("data.js did not load");
@@ -220,6 +321,8 @@ function init() {
   populateIngredientPicker();
   bindTabs();
   bindBrowseControls();
+  bindSimilarControls();
+  refreshSimilarTargetEffects();
   rerender();
 }
 
