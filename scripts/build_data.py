@@ -52,3 +52,22 @@ def clean_wiki_markup(text: str) -> str:
 
     cleaned = _WIKI_LINK_RE.sub(replace, text)
     return re.sub(r"\s+", " ", cleaned).strip()
+
+
+_DLC_MAP = {
+    "Skyrim":            "Base",
+    "Skyrim Dawnguard":  "Dawnguard",
+    "Skyrim Dragonborn": "Dragonborn",
+    "Skyrim Hearthfire": "Hearthfire",
+}
+
+
+def normalize_dlc(raw: str) -> str:
+    """Convert upstream DLC label to the short form used by the UI.
+
+    Raises ValueError on unknown labels so CSV format changes fail loudly.
+    """
+    key = raw.strip()
+    if key not in _DLC_MAP:
+        raise ValueError(f"Unknown DLC label: {raw!r}")
+    return _DLC_MAP[key]

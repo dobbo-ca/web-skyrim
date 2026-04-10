@@ -4,7 +4,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from build_data import classify_source, clean_wiki_markup
+from build_data import classify_source, clean_wiki_markup, normalize_dlc
 
 
 class TestClassifySource(unittest.TestCase):
@@ -65,6 +65,25 @@ class TestCleanWikiMarkup(unittest.TestCase):
 
     def test_collapses_double_spaces(self):
         self.assertEqual(clean_wiki_markup("a  b"), "a b")
+
+
+class TestNormalizeDlc(unittest.TestCase):
+    def test_base_game(self):
+        self.assertEqual(normalize_dlc("Skyrim"), "Base")
+
+    def test_dawnguard(self):
+        self.assertEqual(normalize_dlc("Skyrim Dawnguard"), "Dawnguard")
+
+    def test_dragonborn(self):
+        self.assertEqual(normalize_dlc("Skyrim Dragonborn"), "Dragonborn")
+
+    def test_hearthfire(self):
+        self.assertEqual(normalize_dlc("Skyrim Hearthfire"), "Hearthfire")
+
+    def test_unknown_dlc_raises(self):
+        # Surface CSV format changes loudly rather than silently mislabeling.
+        with self.assertRaises(ValueError):
+            normalize_dlc("Skyrim Anniversary")
 
 
 if __name__ == "__main__":
