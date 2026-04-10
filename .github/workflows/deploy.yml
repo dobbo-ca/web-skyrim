@@ -12,6 +12,8 @@ concurrency:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Checkout source
         uses: actions/checkout@v4
@@ -28,11 +30,20 @@ jobs:
       - name: Build Astro site
         run: npm run build
 
+      - name: Mint GitHub App token (dobbobot-public)
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ vars.GH_PUB_APP_CLIENT_ID }}
+          private-key: ${{ secrets.GH_PUB_APP_PEM }}
+          owner: dobbo-ca
+          repositories: dobbo-ca.github.io
+
       - name: Checkout Pages repo
         uses: actions/checkout@v4
         with:
-          repository: cdobbyn/cdobbyn.github.io
-          token: ${{ secrets.PAGES_DEPLOY_TOKEN }}
+          repository: dobbo-ca/dobbo-ca.github.io
+          token: ${{ steps.app-token.outputs.token }}
           path: pages
           fetch-depth: 1
 
@@ -44,9 +55,11 @@ jobs:
 
       - name: Commit and push
         working-directory: pages
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name "dobbobot-public[bot]"
+          git config user.email "dobbobot-public[bot]@users.noreply.github.com"
           git add skyrim
           if git diff --cached --quiet; then
             echo "No changes to deploy"
@@ -54,3 +67,4 @@ jobs:
           fi
           git commit -m "deploy: skyrim @ ${GITHUB_SHA::7}"
           git push
+</content>

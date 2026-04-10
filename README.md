@@ -64,19 +64,21 @@ The SolidJS app is manually smoke-tested.
 ## Deployment
 
 On push to `main`, the workflow in `.github/workflows/deploy.yml` builds the
-Astro site and syncs the built `dist/` into
-`cdobbyn/cdobbyn.github.io/skyrim/`. That repo is the user's GitHub Pages
-site (`www.dobbo.ca`) and the `skyrim/` subpath is served alongside the
-Hugo blog.
+Astro site and syncs `dist/` into `dobbo-ca/dobbo-ca.github.io/skyrim/`.
+That repo is the org's GitHub Pages site; `www.dobbo.ca` points to it via
+Route 53, and `skyrim/` is served as a static section alongside anything
+else deployed there.
 
-The workflow needs a repository secret named `PAGES_DEPLOY_TOKEN` — a
-fine-grained personal access token with `Contents: Read and write` on
-`cdobbyn/cdobbyn.github.io` and no other repos. Create one at
-<https://github.com/settings/personal-access-tokens/new> and add it via:
+Cross-repo auth uses the `dobbobot-public` GitHub App (owned by
+`dobbo-ca`), installed on both `dobbo-ca/web-skyrim` (read) and
+`dobbo-ca/dobbo-ca.github.io` (write). The workflow mints a short-lived
+installation token via `actions/create-github-app-token@v1`. No PATs.
 
-```bash
-gh secret set PAGES_DEPLOY_TOKEN --repo cdobbyn/skyrim
-```
+Required Actions config on `dobbo-ca` (org-level, shared across any repo
+that opts in):
+
+- **Variable:** `GH_PUB_APP_CLIENT_ID` — the App's Client ID
+- **Secret:** `GH_PUB_APP_PEM` — the App's private key (`BEGIN RSA PRIVATE KEY` block)
 
 ## Known limitations
 
