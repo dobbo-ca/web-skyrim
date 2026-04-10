@@ -84,18 +84,69 @@ function showTab(tabName) {
 }
 
 // ---------------------------------------------------------------------------
+// Browse tab
+// ---------------------------------------------------------------------------
+
+function filterBrowse(ingredients, f) {
+  let result = ingredients.filter((ing) => {
+    if (f.search && !ing.name.toLowerCase().includes(f.search.toLowerCase())) return false;
+    if (!f.dlcs.has(ing.dlc)) return false;
+    if (!f.sources.has(ing.source)) return false;
+    for (const required of f.effects) {
+      if (!ing.effects.includes(required)) return false;
+    }
+    return true;
+  });
+
+  const sorters = {
+    name:   (a, b) => a.name.localeCompare(b.name),
+    value:  (a, b) => b.value - a.value,
+    weight: (a, b) => a.weight - b.weight,
+    ratio:  (a, b) => (b.value / b.weight) - (a.value / a.weight),
+  };
+  result.sort(sorters[f.sort] || sorters.name);
+  return result;
+}
+
+function renderBrowse(results) {
+  const el = document.getElementById("browse-results");
+  if (results.length === 0) {
+    el.innerHTML = '<div class="empty">No ingredients match these filters.</div>';
+    return;
+  }
+  const header = `
+    <div class="row header">
+      <div>Name</div>
+      <div>Effects</div>
+      <div>Weight</div>
+      <div>Value</div>
+      <div>DLC</div>
+      <div>Source</div>
+    </div>`;
+  const rows = results.map((ing) => `
+    <div class="row">
+      <div class="name">${escapeHtml(ing.name)}</div>
+      <div class="pills">${ing.effects.map((e) => `<span class="pill">${escapeHtml(e)}</span>`).join("")}</div>
+      <div>${ing.weight}</div>
+      <div>${ing.value}</div>
+      <div>${escapeHtml(ing.dlc)}</div>
+      <div>${escapeHtml(ing.source)}</div>
+    </div>`).join("");
+  el.innerHTML = header + rows;
+}
+
+// ---------------------------------------------------------------------------
 // Rerender dispatcher (stub — filled in by later tasks)
 // ---------------------------------------------------------------------------
 
 function rerender() {
-  const containerId = {
-    browse: "browse-results",
-    similar: "similar-results",
-    potion: "potion-results",
-  }[state.activeTab];
-  const el = document.getElementById(containerId);
-  if (!el) return;
-  el.innerHTML = '<div class="empty">Not implemented yet.</div>';
+  if (state.activeTab === "browse") {
+    renderBrowse(filterBrowse(window.INGREDIENTS, state.browse));
+  } else {
+    const containerId = { similar: "similar-results", potion: "potion-results" }[state.activeTab];
+    const el = document.getElementById(containerId);
+    if (el) el.innerHTML = '<div class="empty">Not implemented yet.</div>';
+  }
 }
 
 // ---------------------------------------------------------------------------
@@ -128,6 +179,37 @@ function bindTabs() {
   });
 }
 
+function bindBrowseControls() {
+  document.getElementById("browse-search").addEventListener("input", (e) => {
+    state.browse.search = e.target.value;
+    rerender();
+  });
+  document.getElementById("browse-effects").addEventListener("change", (e) => {
+    state.browse.effects = new Set(
+      [...e.target.selectedOptions].map((o) => o.value)
+    );
+    rerender();
+  });
+  document.querySelectorAll(".dlc-filter").forEach((cb) => {
+    cb.addEventListener("change", () => {
+      if (cb.checked) state.browse.dlcs.add(cb.value);
+      else state.browse.dlcs.delete(cb.value);
+      rerender();
+    });
+  });
+  document.querySelectorAll(".source-filter").forEach((cb) => {
+    cb.addEventListener("change", () => {
+      if (cb.checked) state.browse.sources.add(cb.value);
+      else state.browse.sources.delete(cb.value);
+      rerender();
+    });
+  });
+  document.getElementById("browse-sort").addEventListener("change", (e) => {
+    state.browse.sort = e.target.value;
+    rerender();
+  });
+}
+
 function init() {
   if (!window.INGREDIENTS) {
     console.error("data.js did not load");
@@ -137,6 +219,7 @@ function init() {
   populateEffectPickers();
   populateIngredientPicker();
   bindTabs();
+  bindBrowseControls();
   rerender();
 }
 
