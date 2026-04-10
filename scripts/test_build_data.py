@@ -4,7 +4,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from build_data import classify_source, clean_wiki_markup, normalize_dlc
+from build_data import classify_source, clean_wiki_markup, normalize_dlc, parse_row
 
 
 class TestClassifySource(unittest.TestCase):
@@ -84,6 +84,46 @@ class TestNormalizeDlc(unittest.TestCase):
         # Surface CSV format changes loudly rather than silently mislabeling.
         with self.assertRaises(ValueError):
             normalize_dlc("Skyrim Anniversary")
+
+
+class TestParseRow(unittest.TestCase):
+    def test_base_game_plant(self):
+        row = ["Blue Mountain Flower", "Restore Health", "Fortify Conjuration",
+               "Fortify Health", "Damage Magicka Regen", "0.100000", "1",
+               "Harvested from the flower", "Skyrim"]
+        result = parse_row(row)
+        self.assertEqual(result, {
+            "name": "Blue Mountain Flower",
+            "effects": ["Restore Health", "Fortify Conjuration",
+                        "Fortify Health", "Damage Magicka Regen"],
+            "weight": 0.1,
+            "value": 1,
+            "location": "Harvested from the flower",
+            "dlc": "Base",
+            "source": "plant",
+        })
+
+    def test_dragonborn_creature_with_wiki_markup(self):
+        row = ["Ash Hopper Jelly", "Restore Health", "Fortify Light Armor",
+               "Resist Shock", "Weakness to Frost", "0.300000", "20",
+               "[[Ash Hopper ]]Corpses", "Skyrim Dragonborn"]
+        result = parse_row(row)
+        self.assertEqual(result["name"], "Ash Hopper Jelly")
+        self.assertEqual(result["location"], "Ash Hopper Corpses")
+        self.assertEqual(result["dlc"], "Dragonborn")
+        self.assertEqual(result["source"], "creature")
+        self.assertEqual(result["weight"], 0.3)
+        self.assertEqual(result["value"], 20)
+
+    def test_weight_is_float_value_is_int(self):
+        row = ["X", "A", "B", "C", "D", "2.500000", "150", "Shops", "Skyrim"]
+        result = parse_row(row)
+        self.assertIsInstance(result["weight"], float)
+        self.assertIsInstance(result["value"], int)
+
+    def test_wrong_column_count_raises(self):
+        with self.assertRaises(ValueError):
+            parse_row(["too", "few", "columns"])
 
 
 if __name__ == "__main__":

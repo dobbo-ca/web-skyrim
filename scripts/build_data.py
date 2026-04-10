@@ -71,3 +71,25 @@ def normalize_dlc(raw: str) -> str:
     if key not in _DLC_MAP:
         raise ValueError(f"Unknown DLC label: {raw!r}")
     return _DLC_MAP[key]
+
+
+def parse_row(row: list[str]) -> dict:
+    """Convert one CSV row into an ingredient dict.
+
+    Row shape: [name, e1, e2, e3, e4, weight, value, location, dlc_raw]
+    """
+    if len(row) != 9:
+        raise ValueError(f"Expected 9 columns, got {len(row)}: {row}")
+
+    name, e1, e2, e3, e4, weight, value, location_raw, dlc_raw = row
+    location = clean_wiki_markup(location_raw)
+
+    return {
+        "name":     name.strip(),
+        "effects":  [e1.strip(), e2.strip(), e3.strip(), e4.strip()],
+        "weight":   float(weight),
+        "value":    int(value),
+        "location": location,
+        "dlc":      normalize_dlc(dlc_raw),
+        "source":   classify_source(location, name),
+    }
