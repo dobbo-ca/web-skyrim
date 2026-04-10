@@ -1,7 +1,7 @@
 # Skyrim Alchemy
 
 Personal-use static web app for filtering Skyrim's ~110 alchemy ingredients.
-Live at <https://www.dobbo.ca/skyrim-alchemy/>.
+Live at <https://www.dobbo.ca/skyrim/alchemy/>.
 
 Built with [Astro](https://astro.build/) and [SolidJS](https://www.solidjs.com/).
 
@@ -18,7 +18,7 @@ npm install
 npm run dev
 ```
 
-Opens Astro's dev server, typically at <http://localhost:4321/skyrim-alchemy>.
+Opens Astro's dev server, typically at <http://localhost:4321/skyrim/alchemy>.
 
 ## Building
 
@@ -56,9 +56,20 @@ The SolidJS app is manually smoke-tested.
 
 ## Deployment
 
-On push to `main`, the workflow in `.github/workflows/deploy.yml` builds the Astro site and deploys to GitHub Pages via the official Pages action.
+On push to `main`, the workflow in `.github/workflows/deploy.yml` builds the
+Astro site and syncs the built `dist/` into
+`cdobbyn/cdobbyn.github.io/skyrim/alchemy/`. That repo is the user's GitHub
+Pages site (`www.dobbo.ca`) and the nested `skyrim/alchemy/` subpath is
+served as a static section alongside the Hugo blog.
 
-Pages source must be set to "GitHub Actions" in the repo settings (not "Deploy from a branch").
+The workflow needs a repository secret named `PAGES_DEPLOY_TOKEN` — a
+fine-grained personal access token with `Contents: Read and write` on
+`cdobbyn/cdobbyn.github.io` and no other repos. Create one at
+<https://github.com/settings/personal-access-tokens/new> and add it via:
+
+```bash
+gh secret set PAGES_DEPLOY_TOKEN --repo cdobbyn/skyrim-alchemy
+```
 
 ## Known limitations
 
