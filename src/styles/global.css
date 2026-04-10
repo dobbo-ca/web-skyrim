@@ -125,6 +125,12 @@ h1 .brand-url {
   font-weight: 600;
 }
 
+/* Inner / sub-level tabs: slightly lighter surface, sits at top of main */
+.tabs.subtabs {
+  margin-bottom: 1rem;
+  background: var(--bg);
+}
+
 /* --------------------------------------------------------------------
  * Main layout
  * ------------------------------------------------------------------ */
