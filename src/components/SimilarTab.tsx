@@ -181,6 +181,13 @@ export default function SimilarTab(props: Props) {
           }}
         </For>
       </div>
+      <div class="status">
+        <span>
+          {sortedResults().length} ingredient{sortedResults().length === 1 ? '' : 's'} share ≥{minShared()} effect{minShared() === 1 ? '' : 's'} with {target()?.name ?? '—'}
+        </span>
+        <span class="dot">·</span>
+        <span>Click a header to sort</span>
+      </div>
     </section>
   );
 }

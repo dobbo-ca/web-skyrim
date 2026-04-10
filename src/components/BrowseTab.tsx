@@ -1,4 +1,4 @@
-import { createSignal, createMemo, For } from 'solid-js';
+import { createSignal, createMemo, For, onCleanup, onMount } from 'solid-js';
 import type { Ingredient, SortState } from '../lib/types';
 import { filterBrowse, sortBy } from '../lib/filters';
 
@@ -24,7 +24,20 @@ export default function BrowseTab(props: Props) {
   const [sources, setSources] = createSignal<Set<string>>(new Set(SOURCES));
   const [sort, setSort] = createSignal<SortState<SortKey>>({ key: 'name', dir: 'asc' });
 
+  let searchInput: HTMLInputElement | undefined;
+
   const effectOptions = allEffects(props.ingredients);
+
+  onMount(() => {
+    function onKey(e: KeyboardEvent) {
+      if (e.key === '/' && document.activeElement?.tagName !== 'INPUT' && document.activeElement?.tagName !== 'SELECT') {
+        e.preventDefault();
+        searchInput?.focus();
+      }
+    }
+    document.addEventListener('keydown', onKey);
+    onCleanup(() => document.removeEventListener('keydown', onKey));
+  });
 
   const filtered = createMemo(() => {
     const result = filterBrowse(props.ingredients, {
@@ -71,10 +84,11 @@ export default function BrowseTab(props: Props) {
         <label>
           Search
           <input
+            ref={searchInput}
             type="search"
             value={search()}
             onInput={(e) => setSearch(e.currentTarget.value)}
-            placeholder="name…"
+            placeholder="name…  ( / to focus )"
           />
         </label>
         <label>
@@ -178,6 +192,13 @@ export default function BrowseTab(props: Props) {
             </div>
           )}
         </For>
+      </div>
+      <div class="status">
+        <span>Showing {filtered().length} of {props.ingredients.length} ingredients</span>
+        <span class="dot">·</span>
+        <span>Click a header to sort</span>
+        <span class="dot">·</span>
+        <span><kbd>/</kbd> to search</span>
       </div>
     </section>
   );

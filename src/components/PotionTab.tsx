@@ -113,6 +113,15 @@ export default function PotionTab(props: Props) {
           }}
         </For>
       </div>
+      <div class="status">
+        <span>
+          {desired().size === 0
+            ? 'Pick 1–3 effects to start building'
+            : `${results().length} combination${results().length === 1 ? '' : 's'} produce all selected effects`}
+        </span>
+        <span class="dot">·</span>
+        <span>Hold ⌘/Ctrl to multi-select effects</span>
+      </div>
     </section>
   );
 }

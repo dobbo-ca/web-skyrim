@@ -15,7 +15,10 @@ export default function App() {
   return (
     <>
       <header>
-        <h1>Skyrim Alchemy</h1>
+        <h1>
+          <span class="brand-mark">⚗</span>Skyrim Alchemy
+          <span class="brand-url">www.dobbo.ca/skyrim-alchemy/</span>
+        </h1>
         <nav class="tabs" role="tablist">
           <button
             class={`tab ${tab() === 'browse' ? 'active' : ''}`}
