@@ -108,8 +108,9 @@ General-purpose filter workspace.
 **Controls:**
 - Ingredient picker (single-select dropdown, all 110)
 - Minimum shared effects: 1 / 2 / 3 / 4
+- **Target effects (optional, dynamic):** once an ingredient is selected, its 4 effects render as toggleable checkboxes. If any are checked, results are further filtered to include *all* of the checked effects — this lets the user drill in on, e.g., "what else shares 'Restore Health' with Blue Mountain Flower?" (rather than the broader "what shares any 2 effects?"). The checkbox list repopulates whenever the selected ingredient changes, and all boxes start unchecked so behavior defaults to the minimum-shared-effects rule.
 
-**Results:** ingredients that share ≥N effects with the chosen one. Sorted by count of shared effects descending. Shared effects rendered as colored pills so matches are visually obvious.
+**Results:** ingredients that share ≥N effects with the chosen one AND contain all user-targeted effects. Sorted by count of shared effects descending. Shared effects rendered as colored pills so matches are visually obvious.
 
 ### Tab 3 — Potion Builder
 
