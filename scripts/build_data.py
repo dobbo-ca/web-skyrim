@@ -7,13 +7,34 @@ and writes data.js for the static site.
 import re
 
 # Priority-ordered keyword rules. First match wins.
+# Plants run before creatures so things like "Giant Lichen" match `lichen`
+# (plant) before `giant's` (creature).
 _CLASSIFIER_RULES = [
+    # Priority 1: explicit corpse/remains signal
     ("creature",  ["corpse", "corpses", "remains"]),
-    ("purchased", ["alchemy shops", "general goods", "merchants", "apothecary"]),
+    # Priority 2: purchased — explicit merchant sources
+    ("purchased", ["alchemy shops", "general goods", "merchants",
+                   "apothecary", "caravan"]),
+    # Priority 3: plants — harvested flora, mushrooms, herbs, specific species
     ("plant",     ["harvest", "plant", "flower", "bush", "tree", "mushroom",
-                   "fungus", "moss", "pod", "root", "grass", "fern"]),
+                   "fungus", "moss", "pod", "root", "grass", "fern",
+                   "lichen", "wheat", "garlic", "nightshade", "grape",
+                   "lavender", "cotton", "mirriam", "creep cluster",
+                   "blister", "dragon's tongue", "namira's rot", "bloom",
+                   "hanging in homes", "outdoors in clumps", "grows on"]),
+    # Priority 4: creatures — animals, humanoids, body parts, and loot drops
     ("creature",  ["fish", "bee", "moth", "butterfly", "dragonfly", "torchbug",
-                   "spider", "chaurus", "slaughterfish", "bear", "wolf", "horker"]),
+                   "spider", "chaurus", "slaughterfish", "bear", "wolf", "horker",
+                   "boar", "bristleback", "draugr", "skeleton", "forsworn",
+                   "spriggan", "skeever", "daedra", "ectoplasm", "ghost",
+                   "sabre cat", "falmer", "tern", "atronach", "giant's",
+                   "hagraven", "hawk", "human", "vampire", "wraith",
+                   "mudcrab", "netch", "thrush", "warbler", "troll",
+                   "barnacle", "dartwing", "oyster", "dwarven", "dwemer",
+                   "ash spawn", "ashes", "antler", "tusk", "chitin", "fat",
+                   "claw", "feather", "ear", "eye of", "beak", "toe",
+                   "tooth", "teeth", "hide", "flesh", "heart", "dust",
+                   "salts", "sap", "jelly", "egg", "roe", "pearl"]),
 ]
 
 

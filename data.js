@@ -124,7 +124,7 @@ window.INGREDIENTS = [
     "value": 5,
     "location": "Quest item given by Thadgeir",
     "dlc": "Base",
-    "source": "other"
+    "source": "creature"
   },
   {
     "name": "Bleeding Crown",
@@ -152,7 +152,7 @@ window.INGREDIENTS = [
     "value": 12,
     "location": "Caves and dark areas",
     "dlc": "Base",
-    "source": "other"
+    "source": "plant"
   },
   {
     "name": "Blue Butterfly Wing",
@@ -180,7 +180,7 @@ window.INGREDIENTS = [
     "value": 1,
     "location": "Hovering above water",
     "dlc": "Base",
-    "source": "other"
+    "source": "creature"
   },
   {
     "name": "Blue Mountain Flower",
@@ -208,7 +208,7 @@ window.INGREDIENTS = [
     "value": 20,
     "location": "Tusked Bristlebacks",
     "dlc": "Dragonborn",
-    "source": "other"
+    "source": "creature"
   },
   {
     "name": "Bone Meal",
@@ -222,7 +222,7 @@ window.INGREDIENTS = [
     "value": 5,
     "location": "Draugr and skeletons",
     "dlc": "Base",
-    "source": "other"
+    "source": "creature"
   },
   {
     "name": "Briar Heart",
@@ -236,7 +236,7 @@ window.INGREDIENTS = [
     "value": 20,
     "location": "Forsworn Leaders",
     "dlc": "Base",
-    "source": "other"
+    "source": "creature"
   },
   {
     "name": "Burnt Spriggan Wood",
@@ -250,7 +250,7 @@ window.INGREDIENTS = [
     "value": 20,
     "location": "Burnt Spriggans",
     "dlc": "Dragonborn",
-    "source": "other"
+    "source": "creature"
   },
   {
     "name": "Butterfly Wing",
@@ -292,7 +292,7 @@ window.INGREDIENTS = [
     "value": 1,
     "location": "Found at campfires",
     "dlc": "Base",
-    "source": "other"
+    "source": "creature"
   },
   {
     "name": "Chaurus Eggs",
@@ -334,7 +334,7 @@ window.INGREDIENTS = [
     "value": 2,
     "location": "Chicken's Nest",
     "dlc": "Base",
-    "source": "other"
+    "source": "creature"
   },
   {
     "name": "Creep Cluster",
@@ -348,7 +348,7 @@ window.INGREDIENTS = [
     "value": 1,
     "location": "Hydro-thermal areas",
     "dlc": "Base",
-    "source": "other"
+    "source": "plant"
   },
   {
     "name": "Crimson Nirnroot",
@@ -390,7 +390,7 @@ window.INGREDIENTS = [
     "value": 250,
     "location": "Daedra",
     "dlc": "Base",
-    "source": "other"
+    "source": "creature"
   },
   {
     "name": "Deathbell",
@@ -418,7 +418,7 @@ window.INGREDIENTS = [
     "value": 5,
     "location": "Hydro-thermal areas",
     "dlc": "Base",
-    "source": "other"
+    "source": "plant"
   },
   {
     "name": "Dwarven Oil",
@@ -432,7 +432,7 @@ window.INGREDIENTS = [
     "value": 15,
     "location": "Dwemer Ruins",
     "dlc": "Base",
-    "source": "other"
+    "source": "creature"
   },
   {
     "name": "Ectoplasm",
@@ -446,7 +446,7 @@ window.INGREDIENTS = [
     "value": 25,
     "location": "Ghostlike creatures",
     "dlc": "Base",
-    "source": "other"
+    "source": "creature"
   },
   {
     "name": "Elves Ear",
@@ -488,7 +488,7 @@ window.INGREDIENTS = [
     "value": 2,
     "location": "Sabre Cat,Snowy Sabre Cat",
     "dlc": "Base",
-    "source": "other"
+    "source": "creature"
   },
   {
     "name": "Falmer Ear",
@@ -502,7 +502,7 @@ window.INGREDIENTS = [
     "value": 10,
     "location": "Falmer",
     "dlc": "Base",
-    "source": "other"
+    "source": "creature"
   },
   {
     "name": "Felsaad Tern Feathers",
@@ -516,7 +516,7 @@ window.INGREDIENTS = [
     "value": 15,
     "location": "Felsaad Tern",
     "dlc": "Dragonborn",
-    "source": "other"
+    "source": "creature"
   },
   {
     "name": "Fire Salts",
@@ -530,7 +530,7 @@ window.INGREDIENTS = [
     "value": 50,
     "location": "Flame Atronach",
     "dlc": "Base",
-    "source": "other"
+    "source": "creature"
   },
   {
     "name": "Fly Amanita",
@@ -558,7 +558,7 @@ window.INGREDIENTS = [
     "value": 1,
     "location": "Hanging in homes, businesses and giant camps",
     "dlc": "Base",
-    "source": "other"
+    "source": "plant"
   },
   {
     "name": "Frost Salts",
@@ -572,7 +572,7 @@ window.INGREDIENTS = [
     "value": 100,
     "location": "Frost Atronach",
     "dlc": "Base",
-    "source": "other"
+    "source": "creature"
   },
   {
     "name": "Garlic",
@@ -586,7 +586,7 @@ window.INGREDIENTS = [
     "value": 1,
     "location": "Hanging in homes, businesses and cooking areas",
     "dlc": "Base",
-    "source": "other"
+    "source": "plant"
   },
   {
     "name": "Giant Lichen",
@@ -600,7 +600,7 @@ window.INGREDIENTS = [
     "value": 5,
     "location": "Swamps",
     "dlc": "Base",
-    "source": "other"
+    "source": "plant"
   },
   {
     "name": "Giant's Toe",
@@ -614,7 +614,7 @@ window.INGREDIENTS = [
     "value": 20,
     "location": "Giants",
     "dlc": "Base",
-    "source": "other"
+    "source": "creature"
   },
   {
     "name": "Gleamblossom",
@@ -684,7 +684,7 @@ window.INGREDIENTS = [
     "value": 20,
     "location": "Hagraven",
     "dlc": "Base",
-    "source": "other"
+    "source": "creature"
   },
   {
     "name": "Hagraven Feathers",
@@ -698,7 +698,7 @@ window.INGREDIENTS = [
     "value": 20,
     "location": "Hagraven",
     "dlc": "Base",
-    "source": "other"
+    "source": "creature"
   },
   {
     "name": "Hanging Moss",
@@ -726,7 +726,7 @@ window.INGREDIENTS = [
     "value": 15,
     "location": "Hawks",
     "dlc": "Base",
-    "source": "other"
+    "source": "creature"
   },
   {
     "name": "Hawk Feathers",
@@ -740,7 +740,7 @@ window.INGREDIENTS = [
     "value": 15,
     "location": "Hawks",
     "dlc": "Base",
-    "source": "other"
+    "source": "creature"
   },
   {
     "name": "Hawk's Egg",
@@ -754,7 +754,7 @@ window.INGREDIENTS = [
     "value": 2,
     "location": "Hawk's Nest",
     "dlc": "Hearthfire",
-    "source": "other"
+    "source": "creature"
   },
   {
     "name": "Histcarp",
@@ -796,7 +796,7 @@ window.INGREDIENTS = [
     "value": 1,
     "location": "Falmer Vampire dens",
     "dlc": "Base",
-    "source": "other"
+    "source": "creature"
   },
   {
     "name": "Human Heart",
@@ -810,7 +810,7 @@ window.INGREDIENTS = [
     "value": 0,
     "location": "Falmer Vampire dens",
     "dlc": "Base",
-    "source": "other"
+    "source": "creature"
   },
   {
     "name": "Ice Wraith Teeth",
@@ -824,7 +824,7 @@ window.INGREDIENTS = [
     "value": 30,
     "location": "Ice Wraith",
     "dlc": "Base",
-    "source": "other"
+    "source": "creature"
   },
   {
     "name": "Imp Stool",
@@ -866,7 +866,7 @@ window.INGREDIENTS = [
     "value": 1,
     "location": "Hydro-thermal regions",
     "dlc": "Base",
-    "source": "other"
+    "source": "plant"
   },
   {
     "name": "Juniper Berries",
@@ -894,7 +894,7 @@ window.INGREDIENTS = [
     "value": 2,
     "location": "Deer, Elk",
     "dlc": "Base",
-    "source": "other"
+    "source": "creature"
   },
   {
     "name": "Lavender",
@@ -908,7 +908,7 @@ window.INGREDIENTS = [
     "value": 1,
     "location": "Outdoors in clumps",
     "dlc": "Base",
-    "source": "other"
+    "source": "plant"
   },
   {
     "name": "Luna Moth Wing",
@@ -936,7 +936,7 @@ window.INGREDIENTS = [
     "value": 50,
     "location": "Khajiit Caravans",
     "dlc": "Base",
-    "source": "other"
+    "source": "purchased"
   },
   {
     "name": "Mora Tapinella",
@@ -964,7 +964,7 @@ window.INGREDIENTS = [
     "value": 2,
     "location": "Mudcrabs",
     "dlc": "Base",
-    "source": "other"
+    "source": "creature"
   },
   {
     "name": "Namira's Rot",
@@ -978,7 +978,7 @@ window.INGREDIENTS = [
     "value": 0,
     "location": "Caves",
     "dlc": "Base",
-    "source": "other"
+    "source": "plant"
   },
   {
     "name": "Netch Jelly",
@@ -992,7 +992,7 @@ window.INGREDIENTS = [
     "value": 20,
     "location": "Netch",
     "dlc": "Dragonborn",
-    "source": "other"
+    "source": "creature"
   },
   {
     "name": "Nightshade",
@@ -1006,7 +1006,7 @@ window.INGREDIENTS = [
     "value": 8,
     "location": "Graveyards, undead areas",
     "dlc": "Base",
-    "source": "other"
+    "source": "plant"
   },
   {
     "name": "Nirnroot",
@@ -1034,7 +1034,7 @@ window.INGREDIENTS = [
     "value": 5,
     "location": "Underwater",
     "dlc": "Base",
-    "source": "other"
+    "source": "creature"
   },
   {
     "name": "Orange Dartwing",
@@ -1048,7 +1048,7 @@ window.INGREDIENTS = [
     "value": 1,
     "location": "Hovering above water",
     "dlc": "Base",
-    "source": "other"
+    "source": "creature"
   },
   {
     "name": "Pearl",
@@ -1062,7 +1062,7 @@ window.INGREDIENTS = [
     "value": 2,
     "location": "Satchels, Alchemy Laboratory of a Homestead† Pearl Oyster‡",
     "dlc": "Base",
-    "source": "other"
+    "source": "creature"
   },
   {
     "name": "Pine Thrush Egg",
@@ -1076,7 +1076,7 @@ window.INGREDIENTS = [
     "value": 2,
     "location": "Nests in forests",
     "dlc": "Base",
-    "source": "other"
+    "source": "creature"
   },
   {
     "name": "Poison Bloom",
@@ -1090,7 +1090,7 @@ window.INGREDIENTS = [
     "value": 5,
     "location": "Darkfall Cave",
     "dlc": "Dawnguard",
-    "source": "other"
+    "source": "plant"
   },
   {
     "name": "Powdered Mammoth Tusk",
@@ -1160,7 +1160,7 @@ window.INGREDIENTS = [
     "value": 2,
     "location": "Rock Warbler Nest",
     "dlc": "Base",
-    "source": "other"
+    "source": "creature"
   },
   {
     "name": "Sabre Cat Tooth",
@@ -1174,7 +1174,7 @@ window.INGREDIENTS = [
     "value": 2,
     "location": "Sabre Cat,Frost Sabre Cat",
     "dlc": "Base",
-    "source": "other"
+    "source": "creature"
   },
   {
     "name": "Salmon Roe",
@@ -1188,7 +1188,7 @@ window.INGREDIENTS = [
     "value": 5,
     "location": "Salmon jumping up falls, Kitchen of a Homestead†",
     "dlc": "Hearthfire",
-    "source": "other"
+    "source": "creature"
   },
   {
     "name": "Salt Pile",
@@ -1258,7 +1258,7 @@ window.INGREDIENTS = [
     "value": 3,
     "location": "Skeever",
     "dlc": "Base",
-    "source": "other"
+    "source": "creature"
   },
   {
     "name": "Slaughterfish Egg",
@@ -1300,7 +1300,7 @@ window.INGREDIENTS = [
     "value": 2,
     "location": "Elk",
     "dlc": "Base",
-    "source": "other"
+    "source": "creature"
   },
   {
     "name": "Small Pearl",
@@ -1314,7 +1314,7 @@ window.INGREDIENTS = [
     "value": 2,
     "location": "Pearl Oyster‡",
     "dlc": "Base",
-    "source": "other"
+    "source": "creature"
   },
   {
     "name": "Snowberries",
@@ -1342,7 +1342,7 @@ window.INGREDIENTS = [
     "value": 20,
     "location": "Ash Spawn",
     "dlc": "Dragonborn",
-    "source": "other"
+    "source": "creature"
   },
   {
     "name": "Spider Egg",
@@ -1370,7 +1370,7 @@ window.INGREDIENTS = [
     "value": 15,
     "location": "Spriggan",
     "dlc": "Base",
-    "source": "other"
+    "source": "creature"
   },
   {
     "name": "Swamp Fungal Pod",
@@ -1454,7 +1454,7 @@ window.INGREDIENTS = [
     "value": 15,
     "location": "Trolls",
     "dlc": "Base",
-    "source": "other"
+    "source": "creature"
   },
   {
     "name": "Tundra Cotton",
@@ -1468,7 +1468,7 @@ window.INGREDIENTS = [
     "value": 1,
     "location": "High mountains below snow line, tundra",
     "dlc": "Base",
-    "source": "other"
+    "source": "plant"
   },
   {
     "name": "Vampire Dust",
@@ -1482,7 +1482,7 @@ window.INGREDIENTS = [
     "value": 25,
     "location": "Vampires, the Silver Hand",
     "dlc": "Base",
-    "source": "other"
+    "source": "creature"
   },
   {
     "name": "Void Salts",
@@ -1496,7 +1496,7 @@ window.INGREDIENTS = [
     "value": 125,
     "location": "Storm Atronach",
     "dlc": "Base",
-    "source": "other"
+    "source": "creature"
   },
   {
     "name": "Wheat",
@@ -1510,7 +1510,7 @@ window.INGREDIENTS = [
     "value": 5,
     "location": "Grows on farms, containers",
     "dlc": "Base",
-    "source": "other"
+    "source": "plant"
   },
   {
     "name": "White Cap",

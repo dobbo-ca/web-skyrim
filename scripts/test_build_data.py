@@ -42,6 +42,34 @@ class TestClassifySource(unittest.TestCase):
     def test_case_insensitive(self):
         self.assertEqual(classify_source("CORPSES EVERYWHERE", "Big Creature"), "creature")
 
+    # Regression tests covering real upstream-CSV rows that the initial
+    # narrow keyword set missed. Each entry comes from gimpf/SkyrimAlchemy.
+    def test_troll_fat_by_creature_name(self):
+        self.assertEqual(classify_source("Trolls", "Troll Fat"), "creature")
+
+    def test_hagraven_claw_by_creature_name(self):
+        self.assertEqual(classify_source("Hagraven", "Hagraven Claw"), "creature")
+
+    def test_hawks_egg_by_body_part(self):
+        self.assertEqual(classify_source("Hawk's Nest", "Hawk's Egg"), "creature")
+
+    def test_blisterwort_by_name_keyword(self):
+        self.assertEqual(classify_source("Caves and dark areas", "Blisterwort"), "plant")
+
+    def test_giant_lichen_plant_beats_giant_creature(self):
+        # Priority check: plant rules run before creature rules so "lichen"
+        # wins over "giant's".
+        self.assertEqual(classify_source("Swamps", "Giant Lichen"), "plant")
+
+    def test_nightshade_by_plant_name(self):
+        self.assertEqual(classify_source("Graveyards, undead areas", "Nightshade"), "plant")
+
+    def test_fire_salts_by_creature_source(self):
+        self.assertEqual(classify_source("Flame Atronach", "Fire Salts"), "creature")
+
+    def test_moon_sugar_by_caravan(self):
+        self.assertEqual(classify_source("Khajiit Caravans", "Moon Sugar"), "purchased")
+
 
 class TestCleanWikiMarkup(unittest.TestCase):
     def test_plain_link(self):
