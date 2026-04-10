@@ -55,7 +55,7 @@ export default function SimilarTab(props: Props) {
 
   function onTargetChange(name: string) {
     setTargetName(name);
-    setRequiredEffects(new Set());
+    setRequiredEffects(new Set<string>());
   }
 
   function toggleRequiredEffect(effect: string, checked: boolean) {
