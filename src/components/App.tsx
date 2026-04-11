@@ -20,7 +20,6 @@ export default function App() {
       <header>
         <h1>
           <span class="brand-mark">⚔</span>Skyrim
-          <span class="brand-url">www.dobbo.ca/skyrim/</span>
         </h1>
         <nav class="tabs" role="tablist" aria-label="Sections">
           <button
