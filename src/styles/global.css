@@ -594,3 +594,94 @@ main {
   color: var(--text-muted);
   line-height: 1.4;
 }
+
+/* --------------------------------------------------------------------
+ * Enchanting-specific layout
+ * ------------------------------------------------------------------ */
+
+.enchant-row { grid-template-columns: 2fr 3fr 1fr 1fr 0.8fr; }
+.enchant-source-row { grid-template-columns: 2fr 3fr 1fr; }
+.soul-gem-row { grid-template-columns: 1fr 1fr 1fr 2fr; }
+
+.badge-guaranteed {
+  display: inline-block;
+  background: color-mix(in oklab, var(--success) 20%, var(--bg));
+  color: var(--success);
+  border: 1px solid var(--success);
+  border-radius: 999px;
+  padding: 0.1rem 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+.badge-varies {
+  display: inline-block;
+  background: color-mix(in oklab, var(--warning) 20%, var(--bg));
+  color: var(--warning);
+  border: 1px solid var(--warning);
+  border-radius: 999px;
+  padding: 0.1rem 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+/* Calculator */
+.calc-panel {
+  background: var(--bg);
+  border: 1px solid var(--border-muted);
+  border-radius: var(--radius);
+  padding: 0.85rem 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.calc-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  color: var(--text-muted);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+}
+
+.calc-result {
+  padding: 1rem 0 0.25rem;
+  border-top: 1px solid var(--border-muted);
+  min-height: 3rem;
+}
+
+.calc-formula {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  line-height: 1.6;
+  margin-top: 0.35rem;
+}
+
+/* Soul gem reference toggle */
+.gem-ref-toggle {
+  background: var(--bg);
+  color: var(--text-muted);
+  border: 1px solid var(--border-muted);
+  border-radius: var(--radius);
+  padding: 0.45rem 0.85rem;
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 120ms, background 120ms, border-color 120ms;
+}
+
+.gem-ref-toggle:hover {
+  color: var(--text);
+  background: var(--bg-light);
+  border-color: var(--border);
+}
+
+.gem-ref-panel {
+  margin-top: 1rem;
+}
