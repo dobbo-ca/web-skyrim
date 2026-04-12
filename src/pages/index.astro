@@ -1,7 +1,27 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import App from '../components/App';
 ---
-<Layout title="Skyrim Alchemy">
-  <App client:load />
+<Layout title="Skyrim Helper" currentSection="home">
+  <main class="landing">
+    <div class="landing-hero">
+      <h1 class="landing-title"><span class="brand-mark">⚔</span> Skyrim Helper</h1>
+      <p class="landing-subtitle">Quick references for your playthrough</p>
+    </div>
+    <div class="section-cards">
+      <a href="/skyrim/alchemy" class="section-card">
+        <div class="section-card-icon">⚗</div>
+        <div class="section-card-body">
+          <div class="section-card-name">Alchemy</div>
+          <div class="section-card-desc">Browse ingredients, find similar effects, build potions</div>
+        </div>
+      </a>
+      <a href="/skyrim/enchanting" class="section-card">
+        <div class="section-card-icon">✨</div>
+        <div class="section-card-body">
+          <div class="section-card-name">Enchanting</div>
+          <div class="section-card-desc">Browse enchantments, find items to disenchant, calculate magnitudes</div>
+        </div>
+      </a>
+    </div>
+  </main>
 </Layout>
