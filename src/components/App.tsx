@@ -7,13 +7,14 @@ import PotionTab from './PotionTab';
 
 const INGREDIENTS = ingredientsJson as Ingredient[];
 
-// Top-level sections. Room to grow: enchanting, smithing, quests, …
-type Section = 'alchemy';
+// With only one section (alchemy) live, the three alchemy views ARE the
+// top-level nav. When a second section lands we'll reintroduce a section
+// switcher via a landing page + hamburger menu, not by bringing the
+// segmented-control nav back.
 type AlchemyTab = 'browse' | 'similar' | 'potion';
 
 export default function App() {
-  const [section, setSection] = createSignal<Section>('alchemy');
-  const [alchemyTab, setAlchemyTab] = createSignal<AlchemyTab>('browse');
+  const [tab, setTab] = createSignal<AlchemyTab>('browse');
 
   return (
     <>
@@ -21,48 +22,39 @@ export default function App() {
         <h1>
           <span class="brand-mark">⚔</span>Skyrim
         </h1>
-        <nav class="tabs" role="tablist" aria-label="Sections">
+        <nav class="tabs" role="tablist" aria-label="Alchemy views">
           <button
-            class={`tab ${section() === 'alchemy' ? 'active' : ''}`}
-            onClick={() => setSection('alchemy')}
+            class={`tab ${tab() === 'browse' ? 'active' : ''}`}
+            onClick={() => setTab('browse')}
           >
-            Alchemy
+            Browse
+          </button>
+          <button
+            class={`tab ${tab() === 'similar' ? 'active' : ''}`}
+            onClick={() => setTab('similar')}
+          >
+            Similar To
+          </button>
+          <button
+            class={`tab ${tab() === 'potion' ? 'active' : ''}`}
+            onClick={() => setTab('potion')}
+          >
+            Potion Builder
           </button>
         </nav>
       </header>
       <main>
-        <Show when={section() === 'alchemy'}>
-          <nav class="tabs subtabs" role="tablist" aria-label="Alchemy views">
-            <button
-              class={`tab ${alchemyTab() === 'browse' ? 'active' : ''}`}
-              onClick={() => setAlchemyTab('browse')}
-            >
-              Browse
-            </button>
-            <button
-              class={`tab ${alchemyTab() === 'similar' ? 'active' : ''}`}
-              onClick={() => setAlchemyTab('similar')}
-            >
-              Similar To
-            </button>
-            <button
-              class={`tab ${alchemyTab() === 'potion' ? 'active' : ''}`}
-              onClick={() => setAlchemyTab('potion')}
-            >
-              Potion Builder
-            </button>
-          </nav>
-          <Show when={alchemyTab() === 'browse'}>
-            <BrowseTab ingredients={INGREDIENTS} />
-          </Show>
-          <Show when={alchemyTab() === 'similar'}>
-            <SimilarTab ingredients={INGREDIENTS} />
-          </Show>
-          <Show when={alchemyTab() === 'potion'}>
-            <PotionTab ingredients={INGREDIENTS} />
-          </Show>
+        <Show when={tab() === 'browse'}>
+          <BrowseTab ingredients={INGREDIENTS} />
+        </Show>
+        <Show when={tab() === 'similar'}>
+          <SimilarTab ingredients={INGREDIENTS} />
+        </Show>
+        <Show when={tab() === 'potion'}>
+          <PotionTab ingredients={INGREDIENTS} />
         </Show>
       </main>
     </>
   );
 }
+
