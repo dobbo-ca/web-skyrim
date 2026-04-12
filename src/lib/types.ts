@@ -18,7 +18,7 @@ export interface SortState<K extends string> {
   dir: SortDir;
 }
 
-export type EnchantCategory = 'armor' | 'weapon';
+export type EnchantCategory = 'armor' | 'weapon' | 'shield';
 export type EnchantSlot = 'head' | 'body' | 'gloves' | 'boots' | 'ring' | 'necklace' | 'weapon' | 'shield';
 
 export interface DisenchantSource {

@@ -14,7 +14,7 @@ export function filterEnchantments(enchantments: Enchantment[], f: EnchantFilter
       if (!e.name.toLowerCase().includes(q) && !e.description.toLowerCase().includes(q)) return false;
     }
     if (!f.categories.has(e.category)) return false;
-    if (f.slots.size > 0 && !e.slots.some(s => f.slots.has(s))) return false;
+    if (!e.slots.some(s => f.slots.has(s))) return false;
     if (!f.dlcs.has(e.dlc)) return false;
     return true;
   });

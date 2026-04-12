@@ -662,6 +662,10 @@ main {
   margin-top: 0.35rem;
 }
 
+.calc-field input[type="range"] { min-width: 160px; width: 100%; }
+.calc-field input[type="number"],
+.calc-field select { max-width: 80px; }
+
 /* Soul gem reference toggle */
 .gem-ref-toggle {
   background: var(--bg);

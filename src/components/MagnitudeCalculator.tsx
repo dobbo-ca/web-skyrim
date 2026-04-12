@@ -104,7 +104,6 @@ export default function MagnitudeCalculator(props: Props) {
               max="100"
               value={skill()}
               onInput={(e) => setSkill(Number(e.currentTarget.value))}
-              style="min-width: 160px;"
             />
           </label>
 
@@ -116,7 +115,6 @@ export default function MagnitudeCalculator(props: Props) {
               max="5"
               value={perkRanks()}
               onInput={(e) => setPerkRanks(Math.min(5, Math.max(0, Number(e.currentTarget.value))))}
-              style="max-width: 80px;"
             />
           </label>
 
@@ -128,7 +126,6 @@ export default function MagnitudeCalculator(props: Props) {
               max="100"
               value={fortifyPct()}
               onInput={(e) => setFortifyPct(Math.min(100, Math.max(0, Number(e.currentTarget.value))))}
-              style="max-width: 80px;"
             />
           </label>
         </div>

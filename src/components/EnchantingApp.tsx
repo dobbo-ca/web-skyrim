@@ -17,32 +17,29 @@ export default function EnchantingApp() {
 
   return (
     <>
-      <header>
-        <h1><span class="brand-mark">✨</span>Enchanting</h1>
-        <nav class="tabs" role="tablist" aria-label="Enchanting views">
-          <button
-            class="tab"
-            classList={{ active: tab() === 'browse' }}
-            onClick={() => setTab('browse')}
-          >
-            Browse
-          </button>
-          <button
-            class="tab"
-            classList={{ active: tab() === 'disenchant' }}
-            onClick={() => setTab('disenchant')}
-          >
-            Disenchant
-          </button>
-          <button
-            class="tab"
-            classList={{ active: tab() === 'calculator' }}
-            onClick={() => setTab('calculator')}
-          >
-            Calculator
-          </button>
-        </nav>
-      </header>
+      <nav class="tabs" role="tablist" aria-label="Enchanting views">
+        <button
+          class="tab"
+          classList={{ active: tab() === 'browse' }}
+          onClick={() => setTab('browse')}
+        >
+          Browse
+        </button>
+        <button
+          class="tab"
+          classList={{ active: tab() === 'disenchant' }}
+          onClick={() => setTab('disenchant')}
+        >
+          Disenchant
+        </button>
+        <button
+          class="tab"
+          classList={{ active: tab() === 'calculator' }}
+          onClick={() => setTab('calculator')}
+        >
+          Calculator
+        </button>
+      </nav>
       <main>
         <Show when={tab() === 'browse'}>
           <EnchantBrowser enchantments={ENCHANTMENTS} />

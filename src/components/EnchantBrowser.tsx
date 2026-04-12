@@ -5,7 +5,7 @@ import { sortBy } from '../lib/filters';
 
 type SortKey = 'name' | 'magnitude' | 'school' | 'dlc';
 
-const CATEGORIES = ['armor', 'weapon'] as const;
+const CATEGORIES = ['armor', 'weapon', 'shield'] as const;
 const SLOTS = ['head', 'body', 'gloves', 'boots', 'ring', 'necklace', 'weapon', 'shield'] as const;
 const DLCS = ['Base', 'Dawnguard', 'Dragonborn'] as const;
 
@@ -16,7 +16,7 @@ interface Props {
 export default function EnchantBrowser(props: Props) {
   const [search, setSearch] = createSignal('');
   const [categories, setCategories] = createSignal<Set<string>>(new Set(CATEGORIES));
-  const [slots, setSlots] = createSignal<Set<string>>(new Set());
+  const [slots, setSlots] = createSignal<Set<string>>(new Set(SLOTS));
   const [dlcs, setDlcs] = createSignal<Set<string>>(new Set(DLCS));
   const [sort, setSort] = createSignal<SortState<SortKey>>({ key: 'name', dir: 'asc' });
 

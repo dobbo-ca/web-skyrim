@@ -19,9 +19,7 @@ export default function DisenchantFinder(props: Props) {
   const isGenericOnly = createMemo(() => {
     const enc = selected();
     if (!enc) return false;
-    return enc.disenchantSources.every(
-      (s) => !s.guaranteed && s.item.toLowerCase().includes('random')
-    );
+    return enc.disenchantSources.every((s) => !s.guaranteed);
   });
 
   return (
