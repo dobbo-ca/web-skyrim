@@ -17,9 +17,9 @@ export default function Nav(props: NavProps) {
       {/* Mobile hamburger button */}
       <button
         class="nav-hamburger"
-        aria-label="Open navigation menu"
+        aria-label={open() ? 'Close navigation menu' : 'Open navigation menu'}
         aria-expanded={open()}
-        onClick={() => setOpen(true)}
+        onClick={() => setOpen(o => !o)}
       >
         ☰
       </button>

@@ -4,7 +4,7 @@ import Nav from '../components/Nav';
 
 interface Props {
   title: string;
-  currentSection?: string;
+  currentSection?: 'alchemy' | 'enchanting' | 'home';
 }
 const { title, currentSection = 'home' } = Astro.props;
 ---
