@@ -1,0 +1,1037 @@
+[
+  {
+    "name": "Fortify Alchemy",
+    "category": "armor",
+    "slots": [
+      "body",
+      "gloves",
+      "ring",
+      "necklace"
+    ],
+    "baseMagnitude": 8,
+    "magnitudeUnit": "%",
+    "description": "Alchemy skill is improved by N%.",
+    "school": null,
+    "dlc": "Base",
+    "disenchantSources": [
+      {
+        "item": "Krosis (mask)",
+        "location": "Shearpoint dragon lair (word wall)",
+        "guaranteed": true
+      },
+      {
+        "item": "Ahzidal's Ring of Arcana",
+        "location": "Kolbjorn Barrow (Dragonborn DLC, 3rd excavation)",
+        "guaranteed": true
+      }
+    ]
+  },
+  {
+    "name": "Fortify Alteration",
+    "category": "armor",
+    "slots": [
+      "body",
+      "ring",
+      "necklace"
+    ],
+    "baseMagnitude": 8,
+    "magnitudeUnit": "%",
+    "description": "Alteration spells cost N% less to cast.",
+    "school": "Alteration",
+    "dlc": "Base",
+    "disenchantSources": [
+      {
+        "item": "Random enchanted equipment",
+        "location": "Found on leveled loot, merchants, or quest rewards",
+        "guaranteed": false
+      }
+    ]
+  },
+  {
+    "name": "Fortify Archery",
+    "category": "armor",
+    "slots": [
+      "head",
+      "body",
+      "gloves",
+      "ring",
+      "necklace"
+    ],
+    "baseMagnitude": 8,
+    "magnitudeUnit": "%",
+    "description": "Bows do N% more damage.",
+    "school": null,
+    "dlc": "Base",
+    "disenchantSources": [
+      {
+        "item": "Random enchanted equipment",
+        "location": "Found on leveled loot, merchants, or quest rewards",
+        "guaranteed": false
+      }
+    ]
+  },
+  {
+    "name": "Fortify Barter",
+    "category": "armor",
+    "slots": [
+      "ring",
+      "necklace"
+    ],
+    "baseMagnitude": 10,
+    "magnitudeUnit": "%",
+    "description": "You can barter with N% better prices.",
+    "school": null,
+    "dlc": "Base",
+    "disenchantSources": [
+      {
+        "item": "Random enchanted equipment",
+        "location": "Found on leveled loot, merchants, or quest rewards",
+        "guaranteed": false
+      }
+    ]
+  },
+  {
+    "name": "Fortify Block",
+    "category": "armor",
+    "slots": [
+      "body",
+      "gloves",
+      "ring",
+      "necklace"
+    ],
+    "baseMagnitude": 8,
+    "magnitudeUnit": "%",
+    "description": "Blocking absorbs N% more damage.",
+    "school": null,
+    "dlc": "Base",
+    "disenchantSources": [
+      {
+        "item": "Random enchanted equipment",
+        "location": "Found on leveled loot, merchants, or quest rewards",
+        "guaranteed": false
+      }
+    ]
+  },
+  {
+    "name": "Fortify Carry Weight",
+    "category": "armor",
+    "slots": [
+      "body",
+      "boots",
+      "ring",
+      "necklace"
+    ],
+    "baseMagnitude": 25,
+    "magnitudeUnit": "pts",
+    "description": "Carry weight is increased by N points.",
+    "school": null,
+    "dlc": "Base",
+    "disenchantSources": [
+      {
+        "item": "Random enchanted equipment",
+        "location": "Found on leveled loot, merchants, or quest rewards",
+        "guaranteed": false
+      }
+    ]
+  },
+  {
+    "name": "Fortify Conjuration",
+    "category": "armor",
+    "slots": [
+      "body",
+      "ring",
+      "necklace"
+    ],
+    "baseMagnitude": 8,
+    "magnitudeUnit": "%",
+    "description": "Conjuration spells cost N% less to cast.",
+    "school": "Conjuration",
+    "dlc": "Base",
+    "disenchantSources": [
+      {
+        "item": "Random enchanted equipment",
+        "location": "Found on leveled loot, merchants, or quest rewards",
+        "guaranteed": false
+      }
+    ]
+  },
+  {
+    "name": "Fortify Destruction",
+    "category": "armor",
+    "slots": [
+      "body",
+      "ring",
+      "necklace"
+    ],
+    "baseMagnitude": 8,
+    "magnitudeUnit": "%",
+    "description": "Destruction spells cost N% less to cast.",
+    "school": "Destruction",
+    "dlc": "Base",
+    "disenchantSources": [
+      {
+        "item": "Random enchanted equipment",
+        "location": "Found on leveled loot, merchants, or quest rewards",
+        "guaranteed": false
+      }
+    ]
+  },
+  {
+    "name": "Fortify Enchanting",
+    "category": "armor",
+    "slots": [
+      "body",
+      "gloves",
+      "ring",
+      "necklace"
+    ],
+    "baseMagnitude": 5,
+    "magnitudeUnit": "%",
+    "description": "Enchanting skill is improved by N%.",
+    "school": null,
+    "dlc": "Base",
+    "disenchantSources": [
+      {
+        "item": "Ahzidal's Ring of Arcana",
+        "location": "Kolbjorn Barrow (Dragonborn DLC, 3rd excavation)",
+        "guaranteed": true
+      }
+    ]
+  },
+  {
+    "name": "Fortify Health",
+    "category": "armor",
+    "slots": [
+      "body",
+      "ring",
+      "necklace"
+    ],
+    "baseMagnitude": 25,
+    "magnitudeUnit": "pts",
+    "description": "Health is increased by N points.",
+    "school": null,
+    "dlc": "Base",
+    "disenchantSources": [
+      {
+        "item": "Random enchanted equipment",
+        "location": "Found on leveled loot, merchants, or quest rewards",
+        "guaranteed": false
+      }
+    ]
+  },
+  {
+    "name": "Fortify Heavy Armor",
+    "category": "armor",
+    "slots": [
+      "body",
+      "gloves",
+      "ring",
+      "necklace"
+    ],
+    "baseMagnitude": 8,
+    "magnitudeUnit": "%",
+    "description": "Heavy Armor skill is improved by N%.",
+    "school": null,
+    "dlc": "Base",
+    "disenchantSources": [
+      {
+        "item": "Random enchanted equipment",
+        "location": "Found on leveled loot, merchants, or quest rewards",
+        "guaranteed": false
+      }
+    ]
+  },
+  {
+    "name": "Fortify Illusion",
+    "category": "armor",
+    "slots": [
+      "body",
+      "ring",
+      "necklace"
+    ],
+    "baseMagnitude": 8,
+    "magnitudeUnit": "%",
+    "description": "Illusion spells cost N% less to cast.",
+    "school": "Illusion",
+    "dlc": "Base",
+    "disenchantSources": [
+      {
+        "item": "Random enchanted equipment",
+        "location": "Found on leveled loot, merchants, or quest rewards",
+        "guaranteed": false
+      }
+    ]
+  },
+  {
+    "name": "Fortify Light Armor",
+    "category": "armor",
+    "slots": [
+      "body",
+      "gloves",
+      "ring",
+      "necklace"
+    ],
+    "baseMagnitude": 8,
+    "magnitudeUnit": "%",
+    "description": "Light Armor skill is improved by N%.",
+    "school": null,
+    "dlc": "Base",
+    "disenchantSources": [
+      {
+        "item": "Random enchanted equipment",
+        "location": "Found on leveled loot, merchants, or quest rewards",
+        "guaranteed": false
+      }
+    ]
+  },
+  {
+    "name": "Fortify Lockpicking",
+    "category": "armor",
+    "slots": [
+      "gloves",
+      "ring",
+      "necklace"
+    ],
+    "baseMagnitude": 8,
+    "magnitudeUnit": "%",
+    "description": "Lockpicking is N% easier.",
+    "school": null,
+    "dlc": "Base",
+    "disenchantSources": [
+      {
+        "item": "Random enchanted equipment",
+        "location": "Found on leveled loot, merchants, or quest rewards",
+        "guaranteed": false
+      }
+    ]
+  },
+  {
+    "name": "Fortify Magicka",
+    "category": "armor",
+    "slots": [
+      "body",
+      "ring",
+      "necklace"
+    ],
+    "baseMagnitude": 25,
+    "magnitudeUnit": "pts",
+    "description": "Magicka is increased by N points.",
+    "school": null,
+    "dlc": "Base",
+    "disenchantSources": [
+      {
+        "item": "Random enchanted equipment",
+        "location": "Found on leveled loot, merchants, or quest rewards",
+        "guaranteed": false
+      }
+    ]
+  },
+  {
+    "name": "Fortify Magicka Regen",
+    "category": "armor",
+    "slots": [
+      "body",
+      "ring",
+      "necklace"
+    ],
+    "baseMagnitude": 25,
+    "magnitudeUnit": "%",
+    "description": "Magicka regenerates N% faster.",
+    "school": null,
+    "dlc": "Base",
+    "disenchantSources": [
+      {
+        "item": "Random enchanted equipment",
+        "location": "Found on leveled loot, merchants, or quest rewards",
+        "guaranteed": false
+      }
+    ]
+  },
+  {
+    "name": "Fortify One-Handed",
+    "category": "armor",
+    "slots": [
+      "body",
+      "gloves",
+      "ring",
+      "necklace"
+    ],
+    "baseMagnitude": 8,
+    "magnitudeUnit": "%",
+    "description": "One-handed attacks do N% more damage.",
+    "school": null,
+    "dlc": "Base",
+    "disenchantSources": [
+      {
+        "item": "Random enchanted equipment",
+        "location": "Found on leveled loot, merchants, or quest rewards",
+        "guaranteed": false
+      }
+    ]
+  },
+  {
+    "name": "Fortify Pickpocket",
+    "category": "armor",
+    "slots": [
+      "gloves",
+      "ring",
+      "necklace"
+    ],
+    "baseMagnitude": 8,
+    "magnitudeUnit": "%",
+    "description": "Pickpocketing is N% more likely to succeed.",
+    "school": null,
+    "dlc": "Base",
+    "disenchantSources": [
+      {
+        "item": "Random enchanted equipment",
+        "location": "Found on leveled loot, merchants, or quest rewards",
+        "guaranteed": false
+      }
+    ]
+  },
+  {
+    "name": "Fortify Restoration",
+    "category": "armor",
+    "slots": [
+      "body",
+      "ring",
+      "necklace"
+    ],
+    "baseMagnitude": 8,
+    "magnitudeUnit": "%",
+    "description": "Restoration spells cost N% less to cast.",
+    "school": "Restoration",
+    "dlc": "Base",
+    "disenchantSources": [
+      {
+        "item": "Random enchanted equipment",
+        "location": "Found on leveled loot, merchants, or quest rewards",
+        "guaranteed": false
+      }
+    ]
+  },
+  {
+    "name": "Fortify Smithing",
+    "category": "armor",
+    "slots": [
+      "body",
+      "gloves",
+      "ring",
+      "necklace"
+    ],
+    "baseMagnitude": 12,
+    "magnitudeUnit": "%",
+    "description": "Weapons and armor can be improved N% better.",
+    "school": null,
+    "dlc": "Base",
+    "disenchantSources": [
+      {
+        "item": "Silver-Blood Family Ring",
+        "location": "The Forsworn Conspiracy quest reward",
+        "guaranteed": true
+      },
+      {
+        "item": "Linwe's Armor/Boots/Gloves/Hood",
+        "location": "Uttering Hills Cave (Thieves Guild quest)",
+        "guaranteed": true
+      }
+    ]
+  },
+  {
+    "name": "Fortify Sneak",
+    "category": "armor",
+    "slots": [
+      "body",
+      "gloves",
+      "boots",
+      "ring",
+      "necklace"
+    ],
+    "baseMagnitude": 8,
+    "magnitudeUnit": "%",
+    "description": "You are N% harder to detect while sneaking.",
+    "school": null,
+    "dlc": "Base",
+    "disenchantSources": [
+      {
+        "item": "Random enchanted equipment",
+        "location": "Found on leveled loot, merchants, or quest rewards",
+        "guaranteed": false
+      }
+    ]
+  },
+  {
+    "name": "Fortify Stamina",
+    "category": "armor",
+    "slots": [
+      "body",
+      "ring",
+      "necklace"
+    ],
+    "baseMagnitude": 25,
+    "magnitudeUnit": "pts",
+    "description": "Stamina is increased by N points.",
+    "school": null,
+    "dlc": "Base",
+    "disenchantSources": [
+      {
+        "item": "Random enchanted equipment",
+        "location": "Found on leveled loot, merchants, or quest rewards",
+        "guaranteed": false
+      }
+    ]
+  },
+  {
+    "name": "Fortify Stamina Regen",
+    "category": "armor",
+    "slots": [
+      "body",
+      "boots",
+      "ring",
+      "necklace"
+    ],
+    "baseMagnitude": 25,
+    "magnitudeUnit": "%",
+    "description": "Stamina regenerates N% faster.",
+    "school": null,
+    "dlc": "Base",
+    "disenchantSources": [
+      {
+        "item": "Random enchanted equipment",
+        "location": "Found on leveled loot, merchants, or quest rewards",
+        "guaranteed": false
+      }
+    ]
+  },
+  {
+    "name": "Fortify Two-Handed",
+    "category": "armor",
+    "slots": [
+      "body",
+      "gloves",
+      "ring",
+      "necklace"
+    ],
+    "baseMagnitude": 8,
+    "magnitudeUnit": "%",
+    "description": "Two-handed attacks do N% more damage.",
+    "school": null,
+    "dlc": "Base",
+    "disenchantSources": [
+      {
+        "item": "Random enchanted equipment",
+        "location": "Found on leveled loot, merchants, or quest rewards",
+        "guaranteed": false
+      }
+    ]
+  },
+  {
+    "name": "Muffle",
+    "category": "armor",
+    "slots": [
+      "boots"
+    ],
+    "baseMagnitude": null,
+    "magnitudeUnit": null,
+    "description": "Your footsteps are silent.",
+    "school": "Illusion",
+    "dlc": "Base",
+    "disenchantSources": [
+      {
+        "item": "Predator's Grace (boots)",
+        "location": "Evergreen Grove (south of Falkreath)",
+        "guaranteed": true
+      }
+    ]
+  },
+  {
+    "name": "Resist Disease",
+    "category": "armor",
+    "slots": [
+      "body",
+      "ring",
+      "necklace"
+    ],
+    "baseMagnitude": 25,
+    "magnitudeUnit": "%",
+    "description": "Disease resistance is increased by N%.",
+    "school": null,
+    "dlc": "Base",
+    "disenchantSources": [
+      {
+        "item": "Random enchanted equipment",
+        "location": "Found on leveled loot, merchants, or quest rewards",
+        "guaranteed": false
+      }
+    ]
+  },
+  {
+    "name": "Resist Fire",
+    "category": "armor",
+    "slots": [
+      "body",
+      "ring",
+      "necklace"
+    ],
+    "baseMagnitude": 25,
+    "magnitudeUnit": "%",
+    "description": "Fire resistance is increased by N%.",
+    "school": null,
+    "dlc": "Base",
+    "disenchantSources": [
+      {
+        "item": "Random enchanted equipment",
+        "location": "Found on leveled loot, merchants, or quest rewards",
+        "guaranteed": false
+      }
+    ]
+  },
+  {
+    "name": "Resist Frost",
+    "category": "armor",
+    "slots": [
+      "body",
+      "ring",
+      "necklace"
+    ],
+    "baseMagnitude": 25,
+    "magnitudeUnit": "%",
+    "description": "Frost resistance is increased by N%.",
+    "school": null,
+    "dlc": "Base",
+    "disenchantSources": [
+      {
+        "item": "Random enchanted equipment",
+        "location": "Found on leveled loot, merchants, or quest rewards",
+        "guaranteed": false
+      }
+    ]
+  },
+  {
+    "name": "Resist Magic",
+    "category": "armor",
+    "slots": [
+      "body",
+      "ring",
+      "necklace"
+    ],
+    "baseMagnitude": 8,
+    "magnitudeUnit": "%",
+    "description": "Magic resistance is increased by N%.",
+    "school": null,
+    "dlc": "Base",
+    "disenchantSources": [
+      {
+        "item": "Random enchanted equipment",
+        "location": "Found on leveled loot, merchants, or quest rewards",
+        "guaranteed": false
+      }
+    ]
+  },
+  {
+    "name": "Resist Poison",
+    "category": "armor",
+    "slots": [
+      "body",
+      "ring",
+      "necklace"
+    ],
+    "baseMagnitude": 25,
+    "magnitudeUnit": "%",
+    "description": "Poison resistance is increased by N%.",
+    "school": null,
+    "dlc": "Base",
+    "disenchantSources": [
+      {
+        "item": "Random enchanted equipment",
+        "location": "Found on leveled loot, merchants, or quest rewards",
+        "guaranteed": false
+      }
+    ]
+  },
+  {
+    "name": "Resist Shock",
+    "category": "armor",
+    "slots": [
+      "body",
+      "ring",
+      "necklace"
+    ],
+    "baseMagnitude": 25,
+    "magnitudeUnit": "%",
+    "description": "Shock resistance is increased by N%.",
+    "school": null,
+    "dlc": "Base",
+    "disenchantSources": [
+      {
+        "item": "Random enchanted equipment",
+        "location": "Found on leveled loot, merchants, or quest rewards",
+        "guaranteed": false
+      }
+    ]
+  },
+  {
+    "name": "Waterbreathing",
+    "category": "armor",
+    "slots": [
+      "body",
+      "ring",
+      "necklace"
+    ],
+    "baseMagnitude": null,
+    "magnitudeUnit": null,
+    "description": "You can breathe underwater.",
+    "school": "Alteration",
+    "dlc": "Base",
+    "disenchantSources": [
+      {
+        "item": "Random enchanted equipment",
+        "location": "Found on leveled loot, merchants, or quest rewards",
+        "guaranteed": false
+      }
+    ]
+  },
+  {
+    "name": "Absorb Health",
+    "category": "weapon",
+    "slots": [
+      "weapon"
+    ],
+    "baseMagnitude": 10,
+    "magnitudeUnit": "pts",
+    "description": "Absorb N points of health from the target.",
+    "school": "Restoration",
+    "dlc": "Base",
+    "disenchantSources": [
+      {
+        "item": "Vampire weapons",
+        "location": "Dropped by vampires in Volkihar Keep or Castle Volkihar (Dawnguard)",
+        "guaranteed": false
+      }
+    ]
+  },
+  {
+    "name": "Absorb Magicka",
+    "category": "weapon",
+    "slots": [
+      "weapon"
+    ],
+    "baseMagnitude": 10,
+    "magnitudeUnit": "pts",
+    "description": "Absorb N points of Magicka from the target.",
+    "school": "Restoration",
+    "dlc": "Base",
+    "disenchantSources": [
+      {
+        "item": "Random enchanted equipment",
+        "location": "Found on leveled loot, merchants, or quest rewards",
+        "guaranteed": false
+      }
+    ]
+  },
+  {
+    "name": "Absorb Stamina",
+    "category": "weapon",
+    "slots": [
+      "weapon"
+    ],
+    "baseMagnitude": 10,
+    "magnitudeUnit": "pts",
+    "description": "Absorb N points of Stamina from the target.",
+    "school": "Restoration",
+    "dlc": "Base",
+    "disenchantSources": [
+      {
+        "item": "Random enchanted equipment",
+        "location": "Found on leveled loot, merchants, or quest rewards",
+        "guaranteed": false
+      }
+    ]
+  },
+  {
+    "name": "Banish",
+    "category": "weapon",
+    "slots": [
+      "weapon"
+    ],
+    "baseMagnitude": null,
+    "magnitudeUnit": null,
+    "description": "Banishes summoned creatures up to level N.",
+    "school": "Conjuration",
+    "dlc": "Base",
+    "disenchantSources": [
+      {
+        "item": "Any Banish-enchanted weapon",
+        "location": "Radiant loot from higher-level enemies; rare",
+        "guaranteed": false
+      }
+    ]
+  },
+  {
+    "name": "Fear",
+    "category": "weapon",
+    "slots": [
+      "weapon"
+    ],
+    "baseMagnitude": 15,
+    "magnitudeUnit": null,
+    "description": "Target flees from combat for N seconds.",
+    "school": "Illusion",
+    "dlc": "Base",
+    "disenchantSources": [
+      {
+        "item": "Random enchanted equipment",
+        "location": "Found on leveled loot, merchants, or quest rewards",
+        "guaranteed": false
+      }
+    ]
+  },
+  {
+    "name": "Fire Damage",
+    "category": "weapon",
+    "slots": [
+      "weapon"
+    ],
+    "baseMagnitude": 10,
+    "magnitudeUnit": "pts",
+    "description": "Target takes N points of fire damage.",
+    "school": "Destruction",
+    "dlc": "Base",
+    "disenchantSources": [
+      {
+        "item": "Random enchanted equipment",
+        "location": "Found on leveled loot, merchants, or quest rewards",
+        "guaranteed": false
+      }
+    ]
+  },
+  {
+    "name": "Frost Damage",
+    "category": "weapon",
+    "slots": [
+      "weapon"
+    ],
+    "baseMagnitude": 10,
+    "magnitudeUnit": "pts",
+    "description": "Target takes N points of frost damage and stamina damage.",
+    "school": "Destruction",
+    "dlc": "Base",
+    "disenchantSources": [
+      {
+        "item": "Random enchanted equipment",
+        "location": "Found on leveled loot, merchants, or quest rewards",
+        "guaranteed": false
+      }
+    ]
+  },
+  {
+    "name": "Shock Damage",
+    "category": "weapon",
+    "slots": [
+      "weapon"
+    ],
+    "baseMagnitude": 10,
+    "magnitudeUnit": "pts",
+    "description": "Target takes N points of shock damage and half as much Magicka damage.",
+    "school": "Destruction",
+    "dlc": "Base",
+    "disenchantSources": [
+      {
+        "item": "Random enchanted equipment",
+        "location": "Found on leveled loot, merchants, or quest rewards",
+        "guaranteed": false
+      }
+    ]
+  },
+  {
+    "name": "Fiery Soul Trap",
+    "category": "weapon",
+    "slots": [
+      "weapon"
+    ],
+    "baseMagnitude": 10,
+    "magnitudeUnit": "pts",
+    "description": "If target dies within N seconds, fills a soul gem.",
+    "school": "Conjuration",
+    "dlc": "Base",
+    "disenchantSources": [
+      {
+        "item": "Steel Battleaxe of Fiery Souls",
+        "location": "Ironbind Barrow, on a pedestal near the final area",
+        "guaranteed": true
+      }
+    ]
+  },
+  {
+    "name": "Huntsman's Prowess",
+    "category": "weapon",
+    "slots": [
+      "weapon"
+    ],
+    "baseMagnitude": null,
+    "magnitudeUnit": null,
+    "description": "Does N% more damage to animals.",
+    "school": null,
+    "dlc": "Base",
+    "disenchantSources": [
+      {
+        "item": "Poacher's Axe",
+        "location": "Halted Stream Camp, on a table inside the mine",
+        "guaranteed": true
+      }
+    ]
+  },
+  {
+    "name": "Notched Pickaxe",
+    "category": "weapon",
+    "slots": [
+      "weapon"
+    ],
+    "baseMagnitude": null,
+    "magnitudeUnit": null,
+    "description": "Unique pickaxe enchantment; fortifies Smithing.",
+    "school": null,
+    "dlc": "Base",
+    "disenchantSources": [
+      {
+        "item": "Notched Pickaxe",
+        "location": "Throat of the World, embedded in rock near the summit",
+        "guaranteed": true
+      }
+    ]
+  },
+  {
+    "name": "Paralyze",
+    "category": "weapon",
+    "slots": [
+      "weapon"
+    ],
+    "baseMagnitude": null,
+    "magnitudeUnit": null,
+    "description": "Target is paralyzed for N seconds.",
+    "school": "Alteration",
+    "dlc": "Base",
+    "disenchantSources": [
+      {
+        "item": "Any Paralyze-enchanted weapon",
+        "location": "High-level loot or merchants at level 46+",
+        "guaranteed": false
+      }
+    ]
+  },
+  {
+    "name": "Silent Moons Enchant",
+    "category": "weapon",
+    "slots": [
+      "weapon"
+    ],
+    "baseMagnitude": 20,
+    "magnitudeUnit": "pts",
+    "description": "Burns the target for N points while the moon is out.",
+    "school": "Destruction",
+    "dlc": "Base",
+    "disenchantSources": [
+      {
+        "item": "Lunar Iron War Axe",
+        "location": "Silent Moons Camp, on the Lunar Forge or in nearby chest",
+        "guaranteed": true
+      }
+    ]
+  },
+  {
+    "name": "Soul Trap",
+    "category": "weapon",
+    "slots": [
+      "weapon"
+    ],
+    "baseMagnitude": 5,
+    "magnitudeUnit": "sec",
+    "description": "If target dies within N seconds, fills a soul gem.",
+    "school": "Conjuration",
+    "dlc": "Base",
+    "disenchantSources": [
+      {
+        "item": "Random enchanted equipment",
+        "location": "Found on leveled loot, merchants, or quest rewards",
+        "guaranteed": false
+      }
+    ]
+  },
+  {
+    "name": "Stamina Damage",
+    "category": "weapon",
+    "slots": [
+      "weapon"
+    ],
+    "baseMagnitude": 10,
+    "magnitudeUnit": "pts",
+    "description": "Target loses N points of Stamina.",
+    "school": "Destruction",
+    "dlc": "Base",
+    "disenchantSources": [
+      {
+        "item": "Random enchanted equipment",
+        "location": "Found on leveled loot, merchants, or quest rewards",
+        "guaranteed": false
+      }
+    ]
+  },
+  {
+    "name": "Stagger",
+    "category": "weapon",
+    "slots": [
+      "weapon"
+    ],
+    "baseMagnitude": null,
+    "magnitudeUnit": null,
+    "description": "Causes the target to stagger.",
+    "school": "Alteration",
+    "dlc": "Base",
+    "disenchantSources": [
+      {
+        "item": "Random enchanted equipment",
+        "location": "Found on leveled loot, merchants, or quest rewards",
+        "guaranteed": false
+      }
+    ]
+  },
+  {
+    "name": "Magicka Damage",
+    "category": "weapon",
+    "slots": [
+      "weapon"
+    ],
+    "baseMagnitude": 10,
+    "magnitudeUnit": "pts",
+    "description": "Target loses N points of Magicka.",
+    "school": "Destruction",
+    "dlc": "Base",
+    "disenchantSources": [
+      {
+        "item": "Random enchanted equipment",
+        "location": "Found on leveled loot, merchants, or quest rewards",
+        "guaranteed": false
+      }
+    ]
+  },
+  {
+    "name": "Chaos Damage",
+    "category": "weapon",
+    "slots": [
+      "weapon"
+    ],
+    "baseMagnitude": 25,
+    "magnitudeUnit": "pts",
+    "description": "50% chance to deal N points of fire, frost, and shock damage.",
+    "school": "Destruction",
+    "dlc": "Dragonborn",
+    "disenchantSources": [
+      {
+        "item": "Champion's Cudgel",
+        "location": "General Falx Carius at Fort Frostmoth (Dragonborn DLC)",
+        "guaranteed": true
+      }
+    ]
+  }
+]

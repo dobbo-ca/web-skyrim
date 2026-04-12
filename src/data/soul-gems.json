@@ -1,0 +1,8 @@
+[
+  { "name": "Petty",   "maxSoulLevel": 4,  "magnitudeMultiplier": 0.10 },
+  { "name": "Lesser",  "maxSoulLevel": 16, "magnitudeMultiplier": 0.25 },
+  { "name": "Common",  "maxSoulLevel": 28, "magnitudeMultiplier": 0.40 },
+  { "name": "Greater", "maxSoulLevel": 38, "magnitudeMultiplier": 0.60 },
+  { "name": "Grand",   "maxSoulLevel": 99, "magnitudeMultiplier": 1.00 },
+  { "name": "Black",   "maxSoulLevel": 99, "magnitudeMultiplier": 1.00, "note": "Can capture humanoid souls (equivalent to Grand)" }
+]

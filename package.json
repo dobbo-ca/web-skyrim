@@ -8,7 +8,9 @@
     "build": "astro build",
     "preview": "astro preview",
     "test:data": "python3 -m unittest scripts.test_build_data -v",
-    "build:data": "python3 scripts/build_data.py"
+    "build:data": "python3 scripts/build_data.py",
+    "build:enchantments": "python3 scripts/scrape_enchantments.py",
+    "test:enchantments": "python3 -m unittest scripts.test_scrape_enchantments -v"
   },
   "dependencies": {
     "astro": "^5.1.0",
