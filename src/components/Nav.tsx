@@ -33,6 +33,7 @@ export default function Nav(props: NavProps) {
 
       {/* Slide-out sidebar (mobile) */}
       <nav class={`nav-sidebar${open() ? ' open' : ''}`} aria-label="Main navigation">
+        <a href="/skyrim/" class="nav-brand sidebar-brand"><span class="brand-mark">⚔</span> Skyrim</a>
         {links.map((link) => (
           <a
             href={link.href}
@@ -46,6 +47,7 @@ export default function Nav(props: NavProps) {
 
       {/* Desktop horizontal strip */}
       <nav class="nav-desktop" aria-label="Main navigation">
+        <a href="/skyrim/" class="nav-brand"><span class="brand-mark">⚔</span> Skyrim</a>
         {links.map((link) => (
           <a
             href={link.href}
