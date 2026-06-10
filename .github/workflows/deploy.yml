@@ -30,6 +30,9 @@ jobs:
       - name: Build Astro site
         run: npm run build
 
+      - name: Verify CSP coverage
+        run: npm run check:csp
+
       - name: Mint GitHub App token (dobbobot-public)
         id: app-token
         uses: actions/create-github-app-token@v1
